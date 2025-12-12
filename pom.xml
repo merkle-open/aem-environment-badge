@@ -90,7 +90,7 @@
         <bnd.version>6.4.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2025.11.23482.20251120T200914Z-251100</aem.sdk.api>
+        <aem.sdk.api>2025.11.23482.20251120T200914Z-251200</aem.sdk.api>
         <aemanalyser.version>1.6.12</aemanalyser.version>
         <componentGroupName>AEM Environment Badge</componentGroupName>
         <java.version>21</java.version>
