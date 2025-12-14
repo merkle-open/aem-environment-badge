@@ -1,14 +1,15 @@
-package com.merkle.oss.aem.environmentbadge.utils;
+package com.merkle.oss.aem.environmentbadge.constants;
 
-import com.merkle.oss.aem.environmentbadge.constants.BackgroundColor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Unit tests for the {@link BackgroundColor} class.
+ */
 class BackgroundColorTest {
+
     /**
-     * Test getters and setters.
-     *
      * <p>Methods under test:
      *
      * <ul>
@@ -19,10 +20,9 @@ class BackgroundColorTest {
      */
     @Test
     void testGettersAndSetters() {
-        BackgroundColor valueOfResult = BackgroundColor.valueOf("RED");
-
-        String actualToStringResult = valueOfResult.toString();
-        String actualColor = valueOfResult.getColor();
+        final BackgroundColor valueOfResult = BackgroundColor.valueOf("RED");
+        final String actualToStringResult = valueOfResult.toString();
+        final String actualColor = valueOfResult.getColor();
 
         assertEquals("#d7373f", valueOfResult.getColorCode());
         assertEquals("red", actualColor);
@@ -30,13 +30,6 @@ class BackgroundColorTest {
     }
 
     /**
-     * Test {@link BackgroundColor#of(String)}.
-     *
-     * <ul>
-     *   <li>When {@code blue}.
-     *   <li>Then return {@code BLUE}.
-     * </ul>
-     *
      * <p>Method under test: {@link BackgroundColor#of(String)}
      */
     @Test
@@ -45,13 +38,6 @@ class BackgroundColorTest {
     }
 
     /**
-     * Test {@link BackgroundColor#of(String)}.
-     *
-     * <ul>
-     *   <li>When {@code Type}.
-     *   <li>Then return {@code FUCHSIA}.
-     * </ul>
-     *
      * <p>Method under test: {@link BackgroundColor#of(String)}
      */
     @Test

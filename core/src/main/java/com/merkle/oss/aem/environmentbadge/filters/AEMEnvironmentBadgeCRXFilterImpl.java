@@ -38,7 +38,7 @@ import java.util.Map;
  *   <li>Appending environment required HTML to the rendered JSP</li>
  *   <li>Large responses will be stored fully in memory while this filter runs.
  *   Therefore, displaying the environment badge for sling scope based authoring pages
- *   are handled via client library
+ *   is handled via a client library
  *   </li>
  * </ul>
  *
