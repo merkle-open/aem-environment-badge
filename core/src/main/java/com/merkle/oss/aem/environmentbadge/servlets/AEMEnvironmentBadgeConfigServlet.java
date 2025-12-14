@@ -18,6 +18,7 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 
 import javax.servlet.Servlet;
 import java.io.IOException;
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -40,6 +41,7 @@ import java.util.Objects;
 )
 public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
 
+    @Serial
     private static final long serialVersionUID = -2090658834762276970L;
 
     private static final String ENABLED_DOCUMENT_TITLE_PREFIX_KEY = "enableDocumentTitlePrefix";
