@@ -32,7 +32,7 @@
     <developers>
         <developer>
             <id>AEMtech@merkle.com</id>
-            <name>Merkle AEM Open Source</name>
+            <name>Merkle Open Source AEM</name>
             <email>AEMtech@merkle.com</email>
             <organization>Merkle DACH</organization>
             <organizationUrl>http://www.merkle.com/dach</organizationUrl>
@@ -78,23 +78,22 @@
     <!-- P R O P E R T I E S -->
     <!-- ====================================================================== -->
     <properties>
+        <componentGroupName>AEM Environment Badge</componentGroupName>
+
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
-        <aem.publish.host>localhost</aem.publish.host>
-        <aem.publish.port>4503</aem.publish.port>
-        <sling.user>admin</sling.user>
-        <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-        <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-        <bnd.version>6.4.0</bnd.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2025.11.23482.20251120T200914Z-251200</aem.sdk.api>
+
+        <bnd.version>7.1.0</bnd.version>
         <aemanalyser.version>1.6.12</aemanalyser.version>
-        <componentGroupName>AEM Environment Badge</componentGroupName>
-        <java.version>21</java.version>
         <mockito.version>5.21.0</mockito.version>
+
+        <java.version>21</java.version>
+        <aem.sdk.api>2025.11.23482.20251120T200914Z-251200</aem.sdk.api>
     </properties>
 
     <!-- ====================================================================== -->
@@ -106,7 +105,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.3.1</version>
                 <configuration>
                     <scmCommentPrefix>[maven-scm] :</scmCommentPrefix>
                     <preparationGoals>clean install</preparationGoals>
@@ -118,7 +117,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.4.0</version>
                 <inherited>true</inherited>
             </plugin>
             <!-- Maven Enforcer Plugin -->
@@ -159,48 +158,22 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>3.8.0</version>
                     <configuration>
                         <tarLongFileMode>posix</tarLongFileMode>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.eirslett</groupId>
-                    <artifactId>frontend-maven-plugin</artifactId>
-                    <version>${frontend-maven-plugin.version}</version>
-                    <configuration>
-                        <nodeVersion>v16.17.0</nodeVersion>
-                        <npmVersion>8.15.0</npmVersion>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>install node and npm</id>
-                            <goals>
-                                <goal>install-node-and-npm</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>npm ci</id>
-                            <goals>
-                                <goal>npm</goal>
-                            </goals>
-                            <configuration>
-                                <arguments>ci</arguments>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
                 <!-- Maven Jar Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <!-- Maven Clean Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <!-- BND Maven Plugin -->
                 <plugin>
@@ -242,7 +215,7 @@
                         <dependency>
                             <groupId>org.apache.sling</groupId>
                             <artifactId>scriptingbundle-maven-plugin</artifactId>
-                            <version>0.5.0</version>
+                            <version>0.5.2</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -255,43 +228,43 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.4.0</version>
                 </plugin>
                 <!-- Maven Compiler Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
+                    <version>3.14.1</version>
                 </plugin>
                 <!-- Maven Installer Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.1.4</version>
                 </plugin>
                 <!-- Maven Surefire Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>3.5.4</version>
                 </plugin>
                 <!-- Maven Failsafe Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.2.5</version>
+                    <version>3.5.4</version>
                 </plugin>
                 <!-- Maven Deploy Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.1.4</version>
                 </plugin>
                 <!-- Apache Sling Plugin -->
                 <plugin>
                     <groupId>org.apache.sling</groupId>
                     <artifactId>sling-maven-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.0.4</version>
                     <configuration>
                         <slingUrl>http://${aem.host}:${aem.port}/system/console</slingUrl>
                         <deploymentMethod>WebConsole</deploymentMethod>
@@ -301,7 +274,7 @@
                 <plugin>
                     <groupId>org.apache.sling</groupId>
                     <artifactId>htl-maven-plugin</artifactId>
-                    <version>2.0.2-1.4.0</version>
+                    <version>2.0.4-1.4.0</version>
                     <configuration>
                         <failOnWarnings>true</failOnWarnings>
                     </configuration>
@@ -327,7 +300,7 @@
                         <dependency>
                             <groupId>biz.netcentric.aem</groupId>
                             <artifactId>aem-nodetypes</artifactId>
-                            <version>6.5.7.0</version>
+                            <version>2023.10.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -354,19 +327,19 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.6.2</version>
                 </plugin>
                 <!-- Maven Dependency Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.9.0</version>
                 </plugin>
                 <!-- Build Helper Maven Plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <!--This plugin's configuration is used to store Eclipse
                             m2e settings only. It has no influence on the Maven build itself. -->
@@ -522,6 +495,13 @@
                 <artifactId>annotations</artifactId>
                 <version>26.0.2-1</version>
             </dependency>
+            <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
+                <version>1.2.6-1.4.0</version>
+                <scope>provided</scope>
+            </dependency>
             <!-- Testing - Start -->
             <dependency>
                 <groupId>org.junit</groupId>
@@ -545,7 +525,7 @@
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>5.6.12</version>
+                <version>5.6.14</version>
                 <scope>test</scope>
                 <exclusions>
                     <exclusion>
@@ -576,6 +556,19 @@
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
                 <version>1.18.2</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Required to be able to support injection with @Self and @Via -->
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.models.impl</artifactId>
+                <version>2.0.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.api</artifactId>
+                <version>3.0.2</version>
                 <scope>test</scope>
             </dependency>
             <!-- Testing - End -->
