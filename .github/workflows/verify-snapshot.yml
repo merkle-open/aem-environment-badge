@@ -1,0 +1,25 @@
+name: CI snapshot
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  verify:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source code
+      - name: Checkout
+        uses: actions/checkout@v5
+      # Setup Java environment
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'zulu'
+          java-version: '21'
+      # Run maven verify (includes unit tests)
+      - name: Maven verify
+        run: mvn verify --batch-mode
