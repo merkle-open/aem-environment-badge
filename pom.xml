@@ -85,6 +85,9 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 
+        <sonar.organization>merkle-open</sonar.organization>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -171,6 +174,35 @@
                 <configuration>
                     <release>21</release>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.14</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <formats>
+                                <format>XML</format>
+                            </formats>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>5.5.0.6356</version>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -436,7 +468,6 @@
     <!-- P R O F I L E S   D E F I N I T I O N                                  -->
     <!-- ====================================================================== -->
     <profiles>
-        <!-- Development profile: install only the bundle -->
         <profile>
             <id>autoInstallBundle</id>
             <build>
@@ -531,7 +562,7 @@
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
                             <waitUntil>published</waitUntil>
-                            <deploymentName>aem-utils</deploymentName>
+                            <deploymentName>aem-environment-badge</deploymentName>
                         </configuration>
                     </plugin>
                 </plugins>
