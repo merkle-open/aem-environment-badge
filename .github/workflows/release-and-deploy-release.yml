@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: target/site/jacoco/jacoco.xml
+          path: core/target/site/jacoco/jacoco.xml
           retention-days: 1 # We only need this for the duration of the workflow
 
   analyze:
@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: jacoco-report
-          path: target/site/jacoco/
+          path: core/target/site/jacoco/
 
       # Cache SonarQube packages
       - name: Cache SonarQube packages

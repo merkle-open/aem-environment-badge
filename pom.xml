@@ -86,7 +86,7 @@
         <vault.password>admin</vault.password>
 
         <sonar.organization>merkle-open</sonar.organization>
-        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>core/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
