@@ -31,17 +31,17 @@ public interface AEMEnvironmentBadgeConfigService {
     boolean isEnableBadge();
 
     /**
-     * Retrieves the color string used to style the environment badge and its associated bar.
-     *
-     * @return The configured background color string.
-     */
-    String getBadgeBackgroundColor();
-
-    /**
      * Retrieves the text to be displayed on the environment badge component.
      *
      * @return The configured badge title text.
      */
     String getBadgeTitle();
+
+    /**
+     * Retrieves the color string used to style the environment badge and its associated bar.
+     *
+     * @return The configured background color string.
+     */
+    String getBadgeBackgroundColor();
 
 }

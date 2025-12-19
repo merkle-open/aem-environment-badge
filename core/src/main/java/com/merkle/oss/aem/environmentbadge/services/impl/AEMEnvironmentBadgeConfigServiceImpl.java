@@ -72,16 +72,16 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      * {@inheritDoc}
      */
     @Override
-    public String getBadgeBackgroundColor() {
-        return config.badgeBackgroundColor();
+    public String getBadgeTitle() {
+        return config.badgeTitle();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public String getBadgeTitle() {
-        return config.badgeTitle();
+    public String getBadgeBackgroundColor() {
+        return config.badgeBackgroundColor();
     }
 
     /**
@@ -111,9 +111,15 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
         boolean enableBadge();
 
         /**
+         * @return The text content displayed on the environment badge.
+         */
+        @AttributeDefinition(name = "Badge title", description = "The text content displayed on the environment badge")
+        String badgeTitle();
+
+        /**
          * @return The color string defining the badge's background color. Defaults to "fuchsia".
          */
-        @AttributeDefinition(name = "Environment Type", description = "The color string defining the badge's background color. Defaults to 'fuchsia'",
+        @AttributeDefinition(name = "Background color", description = "The color string defining the badge's background color. Defaults to 'fuchsia'",
                 options = {
                         @Option(value = "red", label = "red"),
                         @Option(value = "blue", label = "blue"),
@@ -125,12 +131,6 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
                         @Option(value = "fuchsia", label = "fuchsia")
                 })
         String badgeBackgroundColor() default "fuchsia";
-
-        /**
-         * @return The text content displayed on the environment badge.
-         */
-        @AttributeDefinition(name = "Badge title", description = "The text content displayed on the environment badge.")
-        String badgeTitle();
 
     }
 

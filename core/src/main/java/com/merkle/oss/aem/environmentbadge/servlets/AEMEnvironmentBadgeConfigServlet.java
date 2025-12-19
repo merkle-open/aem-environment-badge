@@ -47,8 +47,8 @@ public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
     private static final String ENABLED_DOCUMENT_TITLE_PREFIX_KEY = "enableDocumentTitlePrefix";
     private static final String DOCUMENT_TITLE_PREFIX_KEY = "documentTitlePrefix";
     private static final String ENABLED_BADGE_KEY = "enableBadge";
-    private static final String BADGE_BACKGROUND_COLOR_KEY = "badgeBackgroundColor";
     private static final String BADGE_TITLE_KEY = "badgeTitle";
+    private static final String BADGE_BACKGROUND_COLOR_KEY = "badgeBackgroundColor";
 
     /**
      * Reference to the OSGi service that provides the configuration settings for the environment badge.
@@ -70,8 +70,8 @@ public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
             configurationDto.put(ENABLED_DOCUMENT_TITLE_PREFIX_KEY, aemEnvironmentBadgeConfigService.isEnableDocumentTitlePrefix());
             configurationDto.put(DOCUMENT_TITLE_PREFIX_KEY, StringUtils.defaultIfEmpty(aemEnvironmentBadgeConfigService.getDocumentTitlePrefix(), StringUtils.EMPTY));
             configurationDto.put(ENABLED_BADGE_KEY, aemEnvironmentBadgeConfigService.isEnableBadge());
-            configurationDto.put(BADGE_BACKGROUND_COLOR_KEY, aemEnvironmentBadgeConfigService.getBadgeBackgroundColor());
             configurationDto.put(BADGE_TITLE_KEY, StringUtils.defaultIfEmpty(aemEnvironmentBadgeConfigService.getBadgeTitle(), StringUtils.EMPTY));
+            configurationDto.put(BADGE_BACKGROUND_COLOR_KEY, aemEnvironmentBadgeConfigService.getBadgeBackgroundColor());
         }
 
         response.setStatus(HttpStatus.SC_OK);
