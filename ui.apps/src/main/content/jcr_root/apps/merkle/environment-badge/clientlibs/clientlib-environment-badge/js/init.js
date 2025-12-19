@@ -10,6 +10,7 @@
 
     "use strict";
 
+
     /**
      * @type {object}
      * @description Local reference to the static utility helper class ({@link Merkle.EnvironmentBadge.BadgeHelper}).
@@ -31,81 +32,75 @@
      * it falls back to an asynchronous AJAX request to the configuration servlet.
      * If the servlet returns null or an empty configuration, the status is stored.
      *
-     * @async
      * @function getConfig
-     * @returns {Promise<BadgeConfig|object>} A Promise that resolves with the configuration object.
+     * @returns {jQuery.Promise<object>} A Promise that resolves with the configuration object.
      * Returns an empty object (`{}`) if the configuration is explicitly deactivated,
      * fails to load via AJAX, or cannot be retrieved.
      */
-    async function getConfig() {
+    function getConfig() {
         const KEY = BadgeHelper.CONST.SESSION_STORAGE_KEY_CONFIG;
         let config = sessionStorage.getItem(KEY);
 
         if (config === '{}') {
-            return {};
+            return $.Deferred().resolve({}).promise();
         }
 
         if (BadgeHelper.isEmpty(config)) {
-            try {
-                // jQuery's getJSON returns a Promise-like Deferred object which is compatible with await.
-                const data = await $.getJSON(BadgeHelper.CONST.CONFIGURATION_SERVLET_URI);
+            return $.getJSON(BadgeHelper.CONST.CONFIGURATION_SERVLET_URI)
+                .then(function (data) {
+                    if (data === null || (Array.isArray(data) && data.length === 0)) {
+                        sessionStorage.setItem(KEY, '{}');
+                        return {};
+                    }
 
-                if (data === null || data.length === 0) {
-                    sessionStorage.setItem(KEY, '{}');
+                    sessionStorage.setItem(KEY, JSON.stringify(data));
+                    return data;
+                })
+                .fail(function (error) {
+                    console.error("Failed to load environment badge settings via AJAX:", error);
                     return {};
-                }
-
-                sessionStorage.setItem(KEY, JSON.stringify(data));
-                return data;
-
-            } catch (error) {
-                console.error("Failed to load environment badge settings via AJAX:", error);
-                return {};
-            }
+                });
         }
 
-        return JSON.parse(config);
+        return $.Deferred().resolve(JSON.parse(config)).promise();
     }
 
     /**
      * Initializes the Environment Badge application flow.
      *
-     * This function retrieves the necessary configuration asynchronously, enforces the
-     * document title prefix, and instantiates the {@link Merkle.EnvironmentBadge.AEMEnvironmentBadge}
-     * class if the badge is enabled. It also sets up a click listener on the global navigation
-     * button to re-initialize the badge after certain UI events (e.g., side panel opening).
+     * This function retrieves the necessary configuration, enforces the
+     * document title prefix, and instantiates the {@link Merkle.EnvironmentBadge.Badge} class if enabled.
+     * It also sets up a click listener on the global navigation button to
+     * re-initialize the badge after certain UI events (e.g., side panel opening).
      *
-     * @async
      * @function init
-     * @returns {Promise<void>} A Promise that resolves when initialization is complete.
+     * @returns {jQuery.Promise<void>} A Promise that resolves when initialization logic is finished.
      */
-    async function init() {
-        /** @const {BadgeConfig} config - The resolved configuration object. */
-        const config = await getConfig();
+    function init() {
+        return getConfig().then(function (config) {
+            BadgeHelper.setDocumentTitlePrefix(config);
 
-        BadgeHelper.setDocumentTitlePrefix(config)
+            if (!config.enableBadge) {
+                return;
+            }
 
-        if (!config.enableBadge) {
-            return
-        }
+            new Badge(config);
 
-        new Badge(config);
-
-        const globalNavButton = document.querySelector(`.${BadgeHelper.CONST.GLOBAL_NAV_BUTTON_CLASS}`);
-        if (globalNavButton) {
-            globalNavButton.addEventListener('click', function () {
-                // Use setTimeout to wait for the AEM UI transition to complete before re-injecting/checking the badge.
-                setTimeout(function () {
-                    new Badge(config);
-                }, 500);
-            });
-        }
+            const globalNavButton = document.querySelector('.' + BadgeHelper.CONST.GLOBAL_NAV_BUTTON_CLASS);
+            if (globalNavButton) {
+                globalNavButton.addEventListener('click', function () {
+                    // Use setTimeout to wait for the AEM UI transition to complete before re-injecting the badge.
+                    setTimeout(function () {
+                        new Badge(config);
+                    }, 500);
+                });
+            }
+        });
     }
 
     /**
      * Main application entry point.
-     * Executes the asynchronous {@link init} function once the entire DOM structure
-     * (excluding images, stylesheets, etc.) has been fully loaded and parsed.
+     * Executes the initialization function once the DOM is fully loaded.
      */
     document.addEventListener('DOMContentLoaded', function () {
         init();
