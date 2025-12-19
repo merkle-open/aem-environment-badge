@@ -10,7 +10,6 @@
 
     "use strict";
 
-
     /**
      * @type {object}
      * @description Local reference to the static utility helper class ({@link Merkle.EnvironmentBadge.BadgeHelper}).
