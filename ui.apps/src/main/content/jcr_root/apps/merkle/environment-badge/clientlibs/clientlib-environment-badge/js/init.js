@@ -85,15 +85,16 @@
 
             new Badge(config);
 
-            const globalNavButton = document.querySelector('.' + BadgeHelper.CONST.GLOBAL_NAV_BUTTON_CLASS);
-            if (globalNavButton) {
-                globalNavButton.addEventListener('click', function () {
-                    // Use setTimeout to wait for the AEM UI transition to complete before re-injecting the badge.
+            const globalNavButtons = document.getElementsByClassName(BadgeHelper.CONST.GLOBAL_NAV_BUTTON_CLASS);
+            if (globalNavButtons.length !== 0) {
+                const button = globalNavButtons[0];
+                button.onclick = function () {
                     setTimeout(function () {
                         new Badge(config);
                     }, 500);
-                });
+                }
             }
+
         });
     }
 
