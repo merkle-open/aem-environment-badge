@@ -44,7 +44,7 @@ To maintain a stable release cycle, we follow a specific branching model:
 1. **Fork** the repository to your own GitHub account [^1].
 2. **Clone** your fork locally.
 3. **Create a branch** off of `develop` (e.g., `feature/issue-123-description`).
-4. **Commit** your changes with clear, descriptive commit messages.
+4. **Commit** your changes with clear, descriptive commit messages by including the issue number (e.g., `#123 Description`).
 5. **Submit a Pull Request** (PR) to our `develop` branch [^2].
 6. **Reference the Issue** in your PR description (e.g., `Closes #123`).
 
@@ -52,8 +52,8 @@ To maintain a stable release cycle, we follow a specific branching model:
 
 A high-quality issue report helps us resolve problems faster. Please adhere to the following when creating an issue:
 
-For more details, please see our [Bug Report Template](.github/ISSUE_TEMPLATE/BUG_TEMPLATE.md)
-or [Feature Request Template](.github/ISSUE_TEMPLATE/FEATURE_REQUEST_TEMPLATE.md).
+For more details, please see our [bug report](.github/ISSUE_TEMPLATE/BUG_TEMPLATE.md)
+or [feature request](.github/ISSUE_TEMPLATE/FEATURE_REQUEST_TEMPLATE.md) templates.
 
 [^1]: [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
 [^2]: [About pull requests](https://help.github.com/articles/using-pull-requests)
