@@ -2,8 +2,6 @@
 
 Thank you for choosing to contribute to the project, we really appreciate your time and effort!
 
----
-
 ## Code of Conduct
 
 This project adheres to the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
@@ -28,8 +26,6 @@ ensures the community can discuss the proposal before any code is written.
    may be closed.
 3. **Labeling:** Once reviewed, the team will apply relevant labels (e.g., `bug`, `enhancement`, `documentation`, etc.).
 
----
-
 ## Technical Guidelines
 
 ### Branching Strategy
@@ -40,7 +36,8 @@ To maintain a stable release cycle, we follow a specific branching model:
 * **`master`**: Reserved for stable, production-ready releases.
 
 > [!CAUTION]
-> Pull Requests targeting the `master` branch or based on outdated code not based on `develop` will be automatically rejected.
+> Pull Requests targeting the `master` branch or based on outdated code not based on `develop` will be automatically
+> rejected.
 
 ### Development Workflow
 
@@ -51,11 +48,6 @@ To maintain a stable release cycle, we follow a specific branching model:
 5. **Submit a Pull Request** (PR) to our `develop` branch [^2].
 6. **Reference the Issue** in your PR description (e.g., `Closes #123`).
 
-[^1]: [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
-[^2]: [About pull requests](https://help.github.com/articles/using-pull-requests)
-
----
-
 ## Issue Report Guidelines
 
 A high-quality issue report helps us resolve problems faster. Please adhere to the following when creating an issue:
@@ -63,6 +55,5 @@ A high-quality issue report helps us resolve problems faster. Please adhere to t
 For more details, please see our [Bug Report Template](.github/ISSUE_TEMPLATE/BUG_TEMPLATE.md)
 or [Feature Request Template](.github/ISSUE_TEMPLATE/FEATURE_REQUEST_TEMPLATE.md).
 
----
-
-Thank you for your effort in making AEM authoring a safer and more intuitive experience!
+[^1]: [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+[^2]: [About pull requests](https://help.github.com/articles/using-pull-requests)
