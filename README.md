@@ -24,16 +24,16 @@
 </p>
 
 The **Environment Badge** is a lightweight visual utility designed for the AEM Authoring UI. It provides instant
-identification of the active Program and Environment, mitigating the risk of performing configurations or content
+identification of the active program and environment, mitigating the risk of performing configurations or content
 authoring in the wrong instance.
 
 ## Key Features
 
-* **Visual Indicators:** Renders a high-visibility badge and a context bar within the AEM Authoring UI and CRX Explorer.
-* **Unified Shell Compatibility:** Designed to work seamlessly with or without the AEM Unified Shell.
-* **Browser Tab Identification:** Optionally prefixes the document title to help users manage multiple open environments
+* **Visual indicators:** Renders a high-visibility badge and a context bar within the AEM Authoring UI and CRX Explorer.
+* **Unified Shell compatibility:** Designed to work seamlessly with or without the AEM Unified Shell.
+* **Browser tab identification:** Optionally prefixes the document title to help users manage multiple open environments
   in browser tabs.
-* **Environment-Specific Configuration:** Leverages OSGi and environment variables to allow unique identification of
+* **Environment specific configuration:** Leverages OSGi and environment variables to allow unique identification of
   tiers.
 
 | Feature                   | Description                                                                                                   | Preview                                          |
@@ -83,7 +83,7 @@ identities,
 exceeding the capabilities of the
 OOTB [Unified Shell indicator](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/aem-cloud-service-on-unified-shell#identify-aemaacs-environment).
 
-#### Example Configuration (RDE Tier)
+#### Example configuration (rde tier)
 
 ```json
 {
@@ -95,13 +95,13 @@ OOTB [Unified Shell indicator](https://experienceleague.adobe.com/en/docs/experi
 }
 ```
 
-#### Properties Reference
+#### Properties reference
 
 | Property                     | Description                                                                                                                             | Default   |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Enable document title prefix | Whether to prepend a prefix to the document title (browser tab)                                                                         | `false`   |
+| Enable document title prefix | Toggles the feature to prepend a prefix to the document title (browser tab)                                                             | `false`   |
 | Document title prefix        | The string prefix to be prepended to the browser tab title.<br/>*E.g.*: `<PREFIX> \| <DOCUMENT TITLE>`                                  | -         |
-| Enable environment badge     | Whether the visual badge component and bar component should be rendered in the AEM UI                                                   | `false`   |
+| Enable environment badge     | Toggles the feature of a visual badge and bar component to be rendered in the AEM Author UI                                             | `false`   |
 | Badge title                  | The text content displayed on the environment badge                                                                                     | -         |
 | Background color             | The color string defining the badge's background color.<br/>*Options*:`red`,`blue`,`green`,`orange`,`grey`,`yellow`,`seafoam`,`fuchsia` | `fuchsia` |
 
@@ -125,5 +125,6 @@ Build and deploy the full package to a local AEM Author:
 
 > [!NOTE]
 > This project is inspired by
-> the [AEM Environment Indicator](https://adobe-consulting-services.github.io/acs-aem-commons/features/environment-indicator/index.html),
+>
+the [AEM Environment Indicator](https://adobe-consulting-services.github.io/acs-aem-commons/features/environment-indicator/index.html),
 > a feature of the [ACS AEM Commons](https://adobe-consulting-services.github.io/acs-aem-commons/) library.

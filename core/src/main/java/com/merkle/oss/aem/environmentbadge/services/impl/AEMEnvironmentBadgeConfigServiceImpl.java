@@ -95,7 +95,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
         /**
          * @return Whether to prepend a prefix to the document title (browser tab).
          */
-        @AttributeDefinition(name = "Enable document title prefix", description = "Whether to prepend a prefix to the document title (browser tab)")
+        @AttributeDefinition(name = "Enable document title prefix", description = "Toggles the feature to prepend a prefix to the document title (browser tab)")
         boolean enableDocumentTitlePrefix();
 
         /**
@@ -107,7 +107,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
         /**
          * @return Whether the visual badge component and bar component should be rendered in the AEM UI.
          */
-        @AttributeDefinition(name = "Enable environment badge", description = "Whether the visual badge component and bar component should be rendered in the AEM UI")
+        @AttributeDefinition(name = "Enable environment badge", description = "Toggles the feature of a visual badge and bar component to be rendered in the AEM Author UI")
         boolean enableBadge();
 
         /**
