@@ -68,7 +68,7 @@ Embed the package into your `all` deployment module using the `filevault-package
 <embedded>
     <groupId>com.merkle.oss.aem</groupId>
     <artifactId>aem-environment-badge.all</artifactId>
-    <target>/apps/{project/path/definition}/install</target>
+    <target>/apps/{your/install/path}/install</target>
 </embedded>
 
    ```
