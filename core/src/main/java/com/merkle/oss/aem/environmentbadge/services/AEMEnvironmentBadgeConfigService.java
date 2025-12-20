@@ -12,14 +12,14 @@ public interface AEMEnvironmentBadgeConfigService {
     /**
      * Checks if the enforcement of a document title prefix is enabled and set.
      *
-     * @return {@code true} if the prefix should be added to the browser tab title; otherwise {@code false}.
+     * @return {@code true} if the prefix should be added to the document title; otherwise {@code false}.
      */
     boolean isEnableDocumentTitlePrefix();
 
     /**
-     * Retrieves the string that should be prepended to the browser tab title.
+     * Retrieves the string that should be prepended to the document title.
      *
-     * @return The configured document title prefix (e.g., {@code <PREFIX> | <BROWSER TITLE>}).
+     * @return The configured document title prefix (e.g., {@code <PREFIX> | <DOCUMENT TITLE>}).
      */
     String getDocumentTitlePrefix();
 

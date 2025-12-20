@@ -99,9 +99,9 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
         boolean enableDocumentTitlePrefix();
 
         /**
-         * @return The string prefix to be prepended to the browser tab title. E.g.: {@code <PREFIX> | <BROWSER TITLE>}
+         * @return The string prefix to be prepended to the browser tab title. E.g.: {@code <PREFIX> | <DOCUMENT TITLE>}
          */
-        @AttributeDefinition(name = "Document title prefix", description = "The string prefix to be prepended to the browser tab title. E.g.: '<PREFIX> | <BROWSER TITLE>'")
+        @AttributeDefinition(name = "Document title prefix", description = "The string prefix to be prepended to the document title. E.g.: '<PREFIX> | <DOCUMENT TITLE>'")
         String documentTitlePrefix();
 
         /**
