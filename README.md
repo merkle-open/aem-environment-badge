@@ -18,9 +18,9 @@
     <a href="https://sonarcloud.io/summary/overall?id=merkle-open_aem-environment-badge&branch=master">
         <img alt="SonarQube - Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=merkle-open_aem-environment-badge&metric=vulnerabilities"></a>
     <a href="https://github.com/merkle-open/aem-environment-badge/actions/workflows/verify-snapshot.yml">
-        <img alt="CI SNAPSHOT - Github Action" src="https://img.shields.io/github/actions/workflow/status/merkle-open/aem-environment-badge/verify-snapshot.yml?branch=develop&logo=githubactions&logoColor=white&logoSize=auto&label=ci-snapshot&link=https%3A%2F%2Fgithub.com%2Fmerkle-open%2Faem-utils%2Factions%2Fworkflows%2Fverify-snapshot.yml"></a>
+        <img alt="CI SNAPSHOT - Github Action" src="https://img.shields.io/github/actions/workflow/status/merkle-open/aem-environment-badge/verify-snapshot.yml?branch=develop&logo=githubactions&logoColor=white&logoSize=auto&label=ci-snapshot&link=https%3A%2F%2Fgithub.com%2Fmerkle-open%2Faem-environment-badge%2Factions%2Fworkflows%2Fverify-snapshot.yml"></a>
     <a href="https://github.com/merkle-open/aem-environment-badge/actions/workflows/deploy-snapshot.yml">
-        <img alt="Deploy SNAPSHOT - Github Action" src="https://img.shields.io/github/actions/workflow/status/merkle-open/aem-environment-badge/deploy-snapshot.yml?branch=develop&logo=githubactions&logoColor=white&logoSize=auto&label=deploy-snapshot&link=https%3A%2F%2Fgithub.com%2Fmerkle-open%2Faem-utils%2Factions%2Fworkflows%2Fdeploy-snapshot.yml"></a>
+        <img alt="Deploy SNAPSHOT - Github Action" src="https://img.shields.io/github/actions/workflow/status/merkle-open/aem-environment-badge/deploy-snapshot.yml?branch=develop&logo=githubactions&logoColor=white&logoSize=auto&label=deploy-snapshot&link=https%3A%2F%2Fgithub.com%2Fmerkle-open%2Faem-environment-badge%2Factions%2Fworkflows%2Fdeploy-snapshot.yml"></a>
 </p>
 
 The **Environment Badge** is a lightweight visual utility designed for the AEM Authoring UI. It provides instant
@@ -88,9 +88,9 @@ OOTB [Unified Shell indicator](https://experienceleague.adobe.com/en/docs/experi
 ```json
 {
   "enableDocumentTitlePrefix": true,
-  "documentTitlePrefix": "$[env:AEM_ENV_BADGE_DOC_TITLE_PREFIX;default=RDE]",
+  "documentTitlePrefix": "$[env:ENV_BADGE_DOC_TITLE_PREFIX;default=RDE]",
   "enableBadge": true,
-  "badgeTitle": "$[env:AEM_ENV_BADGE_TITLE;default=rde]",
+  "badgeTitle": "$[env:ENV_BADGE_TITLE;default=rde]",
   "badgeBackgroundColor": "fuchsia"
 }
 ```
@@ -123,8 +123,9 @@ Build and deploy the full package to a local AEM Author:
 
 ### Credits
 
+[//]: # (@formatter:off)
+
 > [!NOTE]
-> This project is inspired by
->
-the [AEM Environment Indicator](https://adobe-consulting-services.github.io/acs-aem-commons/features/environment-indicator/index.html),
-> a feature of the [ACS AEM Commons](https://adobe-consulting-services.github.io/acs-aem-commons/) library.
+> This project is inspired by the [AEM Environment Indicator](https://adobe-consulting-services.github.io/acs-aem-commons/features/environment-indicator/index.html), a feature of the [ACS AEM Commons](https://adobe-consulting-services.github.io/acs-aem-commons/) library.
+
+[//]: # (@formatter:on)
