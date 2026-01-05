@@ -57,6 +57,8 @@ public enum BackgroundColor {
 
     /**
      * {@inheritDoc}
+     *
+     * @see Enum#toString()
      */
     @Override
     public String toString() {

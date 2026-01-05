@@ -60,6 +60,8 @@ public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
 
     /**
      * {@inheritDoc}
+     *
+     * @see SlingSafeMethodsServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)
      */
     @Override
     protected void doGet(@NotNull final SlingHttpServletRequest request, @NotNull final SlingHttpServletResponse response) throws IOException {

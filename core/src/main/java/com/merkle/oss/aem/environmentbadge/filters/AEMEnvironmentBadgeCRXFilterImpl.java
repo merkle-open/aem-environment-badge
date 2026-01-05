@@ -159,6 +159,8 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
 
     /**
      * {@inheritDoc}
+     *
+     * @see Filter#init(FilterConfig)
      */
     @Override
     public void init(final FilterConfig filterConfig) {
@@ -167,6 +169,8 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
 
     /**
      * {@inheritDoc}
+     *
+     * @see Filter#destroy()
      */
     @Override
     public void destroy() {
