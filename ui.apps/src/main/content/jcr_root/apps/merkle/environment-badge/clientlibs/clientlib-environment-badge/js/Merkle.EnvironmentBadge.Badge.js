@@ -26,12 +26,11 @@
 
         /**
          * Initializes the Badge component.
-         *
          * The badge and badge bar are built and inserted into the DOM only if
          * the {@code config.enableBadge} flag is set to true.
          *
          * @constructor
-         * @param {object} config - Configuration object containing badge settings.
+         * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @param {boolean} config.enableBadge - Flag to determine if the badge should be rendered.
          */
         constructor(config) {
@@ -44,11 +43,8 @@
         /**
          * Constructs the HTML for the badge and attempts to inject it into the appropriate AEM UI container.
          *
-         * It prioritizes the {@code betty-titlebar-primary} element (modern AEM UI) and falls back
-         * to the {@code coral-actionbar-primary} element.
-         *
-         * * @private
-         * @param {BadgeConfig} config - Configuration object.
+         * @private
+         * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @param {string} config.badgeTitle - The text displayed on the badge.
          * @param {string} config.badgeBackgroundColor - The Coral UI color string for the badge and bar.
          * @returns {void}
@@ -84,8 +80,6 @@
         /**
          * Safely appends the badge HTML to a target element, ensuring the badge is not duplicated.
          *
-         * The badge is injected after the last existing child element, or as the first element if the target is empty.
-         *
          * @private
          * @param {HTMLElement} target - The DOM element to append the badge to (e.g., Betty bar or Action bar).
          * @param {string} badge - The HTML string representation of the badge element.
@@ -109,7 +103,7 @@
          * Constructs and prepends the document-spanning badge bar element to the document body.
          *
          * @private
-         * @param {object} config - Configuration object.
+         * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @param {string} config.badgeBackgroundColor - The Coral UI color string to set the background class.
          * @returns {void}
          */
@@ -126,7 +120,7 @@
 
     /**
      * @memberof Merkle.EnvironmentBadge
-     * @type {class}
+     * @type {Badge}
      * @description Exposes the core {@link Badge} class under the 'Badge' property of the namespace.
      */
     namespace.Badge = Badge;

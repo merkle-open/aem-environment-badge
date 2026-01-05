@@ -26,7 +26,6 @@
 
     /**
      * Retrieves the configuration object for the environment badge.
-     *
      * The function prioritizes reading from Session Storage. If no configuration is found,
      * it falls back to an asynchronous AJAX request to the configuration servlet.
      * If the servlet returns null or an empty configuration, the status is stored.
@@ -66,7 +65,6 @@
 
     /**
      * Initializes the Environment Badge application flow.
-     *
      * This function retrieves the necessary configuration, enforces the
      * document title prefix, and instantiates the {@link Merkle.EnvironmentBadge.Badge} class if enabled.
      * It also sets up a click listener on the global navigation button to

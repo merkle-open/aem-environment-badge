@@ -11,11 +11,11 @@
 
     /**
      * @typedef {object} BadgeConfig
-     * @property {boolean} enableBadge - If true, the badge and badge bar should be rendered.
      * @property {boolean} enableDocumentTitlePrefix - If true, the document title prefix will be enforced.
      * @property {string} documentTitlePrefix - The string to prepend to the document title.
+     * @property {boolean} enableBadge - If true, the badge and badge bar should be rendered.
      * @property {string} badgeTitle - The text to display on the badge tag.
-     * @property {string} badgeBackgroundColor - The Coral UI color string (e.g., 'red', 'blue') for the badge/bar.
+     * @property {string} badgeBackgroundColor - The Coral spectrum color string (e.g., 'red', 'blue') for the badge/bar.
      */
 
     /**
@@ -38,8 +38,7 @@
 
         /**
          * @static
-         * Checks if a given value is considered "empty."
-         *
+         * Checks if a given value is considered "empty".
          * An object is considered empty if it is null, undefined,
          * or has no enumerable own-properties. Arrays and strings are empty if
          * their length is 0.
@@ -62,13 +61,13 @@
         /**
          * Ensures a specific prefix is maintained in the browser document title.
          * This method sets the document title initially and then starts an interval
-         * timer to periodically check and re-enforce the title. This is typically used
+         * timer to periodically check and re-enforce the title. This is used
          * to prevent other scripts from accidentally or intentionally overwriting a
          * desired, consistent title (e.g., to indicate environment or status).
          * The enforcement mechanism stops itself after the title is successfully
          * verified for a specific number of times.
          *
-         * @param {BadgeConfig} config - The configuration object containing the desired prefix.
+         * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @param {boolean} config.enableDocumentTitlePrefix - Whether to enforce the prefix.
          * @param {string} config.documentTitlePrefix - The prefix string to prepend.
          * @return {void}
@@ -140,7 +139,7 @@
      * @memberof Merkle.EnvironmentBadge
      * @type {BadgeHelper}
      * @description Exposes the static utility class containing constants, settings, and helper methods
-     * under the 'Helper' property of the Merkle.EnvironmentBadge namespace.
+     * under the 'BadgeHelper' property of the Merkle.EnvironmentBadge namespace.
      */
     namespace.BadgeHelper = BadgeHelper;
 
