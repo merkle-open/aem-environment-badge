@@ -5,7 +5,7 @@
  * @dependency {jQuery} $ - The jQuery library.
  * @dependency {Merkle.EnvironmentBadge} namespace - The namespace object.
  */
-(function ($, namespace) {
+(($, namespace) => {
 
     "use strict";
 
@@ -123,4 +123,4 @@
      */
     namespace.Badge = Badge;
 
-}(window.jQuery, window.Merkle.EnvironmentBadge));
+})(window.jQuery, window.Merkle.EnvironmentBadge);

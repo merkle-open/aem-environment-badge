@@ -4,7 +4,7 @@
  *
  * @dependency {Merkle.EnvironmentBadge} namespace - The namespace object.
  */
-(function (namespace) {
+((namespace) => {
 
     "use strict";
 
@@ -141,4 +141,4 @@
      */
     namespace.BadgeHelper = BadgeHelper;
 
-}(window.Merkle.EnvironmentBadge));
+})(window.Merkle.EnvironmentBadge);

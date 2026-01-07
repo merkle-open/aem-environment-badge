@@ -5,7 +5,7 @@
  *
  * @dependency {Window} global - The global object, typically 'window'.
  */
-(function (global) {
+((global) => {
 
     "use strict";
 
@@ -26,4 +26,4 @@
      */
     global.Merkle.EnvironmentBadge = global.Merkle.EnvironmentBadge || {};
 
-}(window));
+})(window);
