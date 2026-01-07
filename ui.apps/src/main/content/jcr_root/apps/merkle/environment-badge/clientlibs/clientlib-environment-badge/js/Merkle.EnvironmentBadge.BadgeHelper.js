@@ -2,8 +2,7 @@
  * @fileoverview Defines the core Helper utility object for the Merkle.EnvironmentBadge
  * application, including shared constants, settings, and utility functions.
  *
- *  @dependency {object} namespace - The Merkle.EnvironmentBadge global namespace object.
- *  @namespace Merkle.EnvironmentBadge
+ * @dependency {Merkle.EnvironmentBadge} namespace - The namespace object.
  */
 (function (namespace) {
 
@@ -37,25 +36,25 @@
         }
 
         /**
-         * @static
          * Checks if a given value is considered "empty".
-         * An object is considered empty if it is null, undefined,
-         * or has no enumerable own-properties. Arrays and strings are empty if
-         * their length is 0.
+         * An object is considered empty if it is null, undefined, or has no
+         * enumerable own-properties. Arrays and strings are empty if their length is 0.
          *
-         * @param {string|Array<any>|object|null|undefined} object The value to check against.
-         * @return {boolean} true if the value is empty, otherwise false.
+         * @param {*} value - The value to check against.
+         * @return {boolean} True if the value is empty, otherwise false.
+         * @static
+         * @public
          */
-        static isEmpty(object) {
-            if (object == null) {
+        static isEmpty(value) {
+            if (value == null) {
                 return true;
             }
 
-            if (Array.isArray(object) || typeof object === 'string') {
-                return object.length === 0;
+            if (Array.isArray(value) || typeof value === 'string') {
+                return value.length === 0;
             }
 
-            return Object.keys(object).length === 0;
+            return Object.keys(value).length === 0;
         }
 
         /**
@@ -68,9 +67,9 @@
          * verified for a specific number of times.
          *
          * @param {BadgeConfig} config - Configuration object containing badge settings.
-         * @param {boolean} config.enableDocumentTitlePrefix - Whether to enforce the prefix.
-         * @param {string} config.documentTitlePrefix - The prefix string to prepend.
          * @return {void}
+         * @static
+         * @public
          */
         static setDocumentTitlePrefix(config) {
             if (!config.enableDocumentTitlePrefix || this.isEmpty(config.documentTitlePrefix)) {
@@ -82,7 +81,7 @@
 
             let enforcementCount = 0;
             const MAX_CHECKS = this.SETTINGS.DOCUMENT_TITLE_PREFIX_MAX_CHECKS;
-            const INTERVAL_DURATION = this.SETTINGS.DOCUMENT_TITLE_PREFIX_CHEK_INTERVAL_DURATION_MS;
+            const INTERVAL_DURATION = this.SETTINGS.DOCUMENT_TITLE_PREFIX_CHECK_INTERVAL_DURATION_MS;
 
             const intervalId = setInterval(() => {
                 if (document.title !== targetTitle) {
@@ -110,15 +109,15 @@
         AEM_BADGE_ID: "aem-environment-badge",
         /** @type {string} The HTML ID attribute for the container element holding the environment badge. */
         AEM_BADGE_BAR_ID: "aem-environment-badge-bar",
-        /** @type {string} The tag name used for the primary title bar in the AEM UI (e.g., when Betty is active). */
+        /** @type {string} The tag name used for the primary title bar in the AEM UI. */
         BETTY_BAR_TAG: "betty-titlebar-primary",
         /** @type {string} The tag name used for the standard action bar element in the AEM UI. */
         ACTION_BAR_TAG: "coral-actionbar-primary",
-        /** @type {string} The CSS class name for the global navigation button, often used as a positioning reference. */
+        /** @type {string} The CSS class name for the global navigation button. */
         GLOBAL_NAV_BUTTON_CLASS: "globalnav-toggle",
         /** @type {string} The key used to store configuration data in the browser's Session Storage. */
         SESSION_STORAGE_KEY_CONFIG: "com.merkle.oss.aem.environment-badge.config",
-        /** @type {string} The URI from which to retrieve the environment badge configurations with. */
+        /** @type {string} The URI from which to retrieve the environment badge configurations. */
         CONFIGURATION_SERVLET_URI: "/bin/com/merkle/oss/aem/environment-badge/config.json"
     });
 
@@ -132,14 +131,13 @@
         /** @type {number} The maximum number of times the interval check should run to ensure the document title prefix remains set. */
         DOCUMENT_TITLE_PREFIX_MAX_CHECKS: 5,
         /** @type {number} The duration in milliseconds between checks for title prefix enforcement. */
-        DOCUMENT_TITLE_PREFIX_CHEK_INTERVAL_DURATION_MS: 1500
+        DOCUMENT_TITLE_PREFIX_CHECK_INTERVAL_DURATION_MS: 1500
     });
 
     /**
      * @memberof Merkle.EnvironmentBadge
-     * @type {BadgeHelper}
-     * @description Exposes the static utility class containing constants, settings, and helper methods
-     * under the 'BadgeHelper' property of the Merkle.EnvironmentBadge namespace.
+     * @type {typeof BadgeHelper}
+     * @description Exposes the static utility class {@link BadgeHelper} containing constants, settings, and helper methods.
      */
     namespace.BadgeHelper = BadgeHelper;
 

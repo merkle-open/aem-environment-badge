@@ -4,21 +4,21 @@
  * initializes the core Badge functionality, and sets up DOM event listeners.
  *
  * @dependency {jQuery} $ - The jQuery library.
- * @dependency {object} namespace - The {@link Merkle.EnvironmentBadge} namespace object.
+ * @dependency {Merkle.EnvironmentBadge} namespace - The namespace object.
  */
 (function ($, namespace) {
 
     "use strict";
 
     /**
-     * @type {object}
+     * @type {typeof Merkle.EnvironmentBadge.BadgeHelper}
      * @description Local reference to the static utility helper class ({@link Merkle.EnvironmentBadge.BadgeHelper}).
      * @const
      */
     const BadgeHelper = namespace.BadgeHelper;
 
     /**
-     * @type {object}
+     * @type {typeof Merkle.EnvironmentBadge.Badge}
      * @description Local reference to the core Badge class ({@link Merkle.EnvironmentBadge.Badge}).
      * @const
      */
@@ -30,10 +30,9 @@
      * it falls back to an asynchronous AJAX request to the configuration servlet.
      * If the servlet returns null or an empty configuration, the status is stored.
      *
-     * @function getConfig
-     * @returns {jQuery.Promise<object>} A Promise that resolves with the configuration object.
-     * Returns an empty object (`{}`) if the configuration is explicitly deactivated,
-     * fails to load via AJAX, or cannot be retrieved.
+     * @returns {jQuery.Promise<BadgeConfig>} A Promise that resolves with the configuration object.
+     * Returns an empty object (`{}`) if the configuration is explicitly deactivated or fails to load.
+     * @private
      */
     function getConfig() {
         const KEY = BadgeHelper.CONST.SESSION_STORAGE_KEY_CONFIG;
@@ -65,13 +64,12 @@
 
     /**
      * Initializes the Environment Badge application flow.
-     * This function retrieves the necessary configuration, enforces the
-     * document title prefix, and instantiates the {@link Merkle.EnvironmentBadge.Badge} class if enabled.
-     * It also sets up a click listener on the global navigation button to
-     * re-initialize the badge after certain UI events (e.g., side panel opening).
+     * Retrieves the configuration, enforces the document title prefix, and instantiates
+     * the {@link Badge} class. It also sets up a click listener on the global
+     * navigation button to ensure the badge persists through AEM UI layout shifts.
      *
-     * @function init
      * @returns {jQuery.Promise<void>} A Promise that resolves when initialization logic is finished.
+     * @private
      */
     function init() {
         return getConfig().then(function (config) {
