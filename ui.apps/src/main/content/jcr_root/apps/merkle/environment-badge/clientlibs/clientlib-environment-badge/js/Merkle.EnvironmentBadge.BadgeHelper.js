@@ -21,7 +21,7 @@
      * @class BadgeHelper
      * @classdesc A static utility class designed to encapsulate application-wide
      * constants, configurable settings, and stateless helper functions.
-     * This class should not be instantiated.
+     * This class cannot be instantiated.
      * @memberof Merkle.EnvironmentBadge
      */
     class BadgeHelper {
@@ -102,6 +102,7 @@
      * @static
      * @constant
      * @type {object}
+     * @readonly
      * @description Constants and key strings used throughout the application for IDs, tags, and keys.
      */
     BadgeHelper.CONST = Object.freeze({
@@ -125,6 +126,7 @@
      * @static
      * @constant
      * @type {object}
+     * @readonly
      * @description Global settings for the module's behavior, primarily revolving around timing and limits.
      */
     BadgeHelper.SETTINGS = Object.freeze({

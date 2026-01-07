@@ -27,10 +27,11 @@
         /**
          * Initializes the Badge component.
          * The badge and badge bar are built and inserted into the DOM only if
-         * the {@link BadgeConfig} enables it.
+         * the provided {@link BadgeConfig} enables it.
          *
          * @constructor
          * @param {BadgeConfig} config - Configuration object containing badge settings.
+         * @public
          */
         constructor(config) {
             if (config.enableBadge) {
@@ -41,11 +42,11 @@
 
         /**
          * Constructs the HTML for the badge and attempts to inject it into the appropriate AEM UI container.
-         * Locates either the Betty Title bar or the Coral Actionbar based on presence.
+         * Locates either the Betty Title bar or the Coral Actionbar based on presence in the current view.
          *
-         * @private
          * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @returns {void}
+         * @private
          */
         _buildBadge(config) {
             if (BadgeHelper.isEmpty(config.badgeTitle)) {
@@ -78,10 +79,10 @@
         /**
          * Safely appends the badge HTML to a target element, ensuring the badge is not duplicated.
          *
-         * @private
          * @param {HTMLElement} target - The DOM element to append the badge to (e.g., Betty bar or Action bar).
          * @param {string} badge - The HTML string representation of the badge element.
          * @returns {void}
+         * @private
          */
         _appendBadgeToTarget(target, badge) {
             if (!target || target.querySelector(`#${BadgeHelper.CONST.AEM_BADGE_ID}`) !== null) {
@@ -101,9 +102,9 @@
          * Constructs and prepends the document-spanning badge bar element to the document body.
          * The bar is used for visual environmental highlighting at the very top of the viewport.
          *
-         * @private
          * @param {BadgeConfig} config - Configuration object containing badge settings.
          * @returns {void}
+         * @private
          */
         _buildBadgeBar(config) {
             const bar = `
