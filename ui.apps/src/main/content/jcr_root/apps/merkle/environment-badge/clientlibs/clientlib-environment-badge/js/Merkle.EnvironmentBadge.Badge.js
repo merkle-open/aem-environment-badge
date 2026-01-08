@@ -120,7 +120,7 @@
     /**
      * @memberof Merkle.EnvironmentBadge
      * @type {typeof Badge}
-     * @description Exposes the core {@link Badge} class under the 'Badge' property of the namespace.
+     * @description Exposes the core {@link Badge} class.
      */
     namespace.Badge = Badge;
 
