@@ -91,7 +91,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <bnd.version>7.2.0</bnd.version>
+        <bnd.version>7.2.1</bnd.version>
         <aemanalyser.version>1.6.12</aemanalyser.version>
         <mockito.version>5.21.0</mockito.version>
         <mvn.gpg.plugin.version>3.2.8</mvn.gpg.plugin.version>
