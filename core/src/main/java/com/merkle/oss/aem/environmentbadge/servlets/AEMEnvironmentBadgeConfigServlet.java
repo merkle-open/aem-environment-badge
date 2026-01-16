@@ -25,9 +25,9 @@ import java.util.Objects;
 
 /**
  * Sling Servlet for retrieving the AEM Environment Badge configuration as a JSON object.
- *
- * <p>This servlet is mapped using the {@link SlingServletPathsStrict} annotation to a specific path
- * to serve the necessary configuration data to the frontend JavaScript component via an AJAX request.</p>
+ * <p>
+ * This servlet is mapped using the {@link SlingServletPathsStrict} annotation to a specific path
+ * to serve the necessary configuration data to the frontend JavaScript component via an AJAX request.
  *
  * @see AEMEnvironmentBadgeConfigService
  */

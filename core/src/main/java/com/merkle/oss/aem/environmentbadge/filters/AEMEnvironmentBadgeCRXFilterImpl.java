@@ -31,15 +31,13 @@ import java.util.*;
  * This filter is limited to requests matching the index.jsp of the AEM package manager
  * defined by {@code AEMEnvironmentBadgeCRXFilterImpl.ACCEPTED_PATHS}
  *
- * <h3>Use Case</h3>
- * <ul>
- *   <li>Appending environment required HTML to the rendered JSP</li>
- *   <li>Large responses will be stored fully in memory while this filter runs.
- *   Therefore, displaying the environment badge for sling scope based authoring pages
- *   is handled via a client library
- *   </li>
+ * @apiNote <ul>
+ * <li>Appending environment required HTML to the rendered JSP</li>
+ * <li>Large responses will be stored fully in memory while this filter runs.
+ * Therefore, displaying the environment badge for sling scope based authoring pages
+ * is handled via a client library
+ * </li>
  * </ul>
- *
  */
 @Component(
         service = Filter.class,

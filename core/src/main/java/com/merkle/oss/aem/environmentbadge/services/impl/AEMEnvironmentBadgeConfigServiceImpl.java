@@ -18,8 +18,9 @@ import java.util.Objects;
 
 /**
  * Component implementing the {@link AEMEnvironmentBadgeConfigService}.
- * * <p>This service manages the configuration for the AEM environment badge component,
- * retrieving settings defined via the OSGi Configuration console ({@code sling:OsgiConfig} files).</p>
+ * <p>
+ * This service manages the configuration for the AEM environment badge component,
+ * retrieving settings defined via the OSGi Configuration console ({@code sling:OsgiConfig} files).
  */
 @Component(
         service = AEMEnvironmentBadgeConfigService.class,
@@ -91,8 +92,9 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
 
     /**
      * Defines the OSGi Metatype Configuration for the AEM Environment Badge service.
-     * * <p>The properties defined here are used to configure the badge's behavior
-     * and appearance in different AEM environments.</p>
+     * <p>
+     * The properties defined here are used to configure the badge's behavior
+     * and appearance in different AEM environments.
      */
     @ObjectClassDefinition(name = "AEM Environment Badge Config")
     public @interface AEMEnvironmentBadgeConfig {

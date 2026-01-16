@@ -4,10 +4,10 @@ import org.jspecify.annotations.NonNull;
 
 /**
  * Service interface for retrieving configuration settings related to the AEM Environment Badge.
- *
- * <p>Implementations of this service source configuration values from OSGi configurations,
+ * <p>
+ * Implementations of this service source configuration values from OSGi configurations,
  * providing a consistent layer for other components (like servlets or models) to access
- * badge behavior and appearance settings.</p>
+ * badge behavior and appearance settings.
  */
 public interface AEMEnvironmentBadgeConfigService {
 

@@ -67,8 +67,8 @@ public enum BackgroundColor {
 
     /**
      * Retrieves the {@code BackgroundColor} enum constant corresponding to the given string type (color name).
-     *
-     * <p>The comparison is case-sensitive using {@code Strings.CS.equals}.</p>
+     * <p>
+     * The comparison is case-sensitive using {@code Strings.CS.equals}.
      *
      * @param type The descriptive color name (e.g., "blue") to search for.
      * @return The matching {@code BackgroundColor} constant. Returns {@link #FUCHSIA} if no match is found.

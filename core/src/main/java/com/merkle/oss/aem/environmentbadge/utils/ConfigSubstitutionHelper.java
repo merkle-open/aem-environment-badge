@@ -14,7 +14,6 @@ import java.util.Objects;
  * This class uses an underlying mechanism of {@link org.apache.commons.text.StringSubstitutor} to replace
  * placeholders (e.g., {@code ${placeholder_key_value}}) in a source string with values
  * provided during the helper's creation.
- * </p>
  */
 public class ConfigSubstitutionHelper {
 
@@ -36,7 +35,6 @@ public class ConfigSubstitutionHelper {
      * <p>
      * The map is copied internally to ensure the helper's substitution values
      * remain consistent even if the source map is later modified.
-     * </p>
      *
      * @param substitutionValues The key-value map where keys are the placeholder names
      *                           (without prefix/suffix, e.g., "variable_name") and
