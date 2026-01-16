@@ -679,7 +679,7 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.18.3</version>
+                <version>1.18.4</version>
                 <scope>test</scope>
             </dependency>
             <!-- Required to be able to support injection with @Self and @Via -->
