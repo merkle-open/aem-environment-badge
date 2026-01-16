@@ -9,10 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,6 +17,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -212,6 +210,19 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
         assert (finalContent.contains("<div id=" + barDivIdValue + "></div>"));
         assert (finalContent.contains("<script>(function(){const t='DEV | '+document.title;document.title=t;let e=0;const n=5,c=1500;"));
         assert (finalContent.contains("<style>#" + barDivIdValue + "{background-color:" + BackgroundColor.BLUE.getColorCode() + ";"));
+    }
+
+    /**
+     * <p>Methods under test:
+     * <ul>
+     *   <li>{@link AEMEnvironmentBadgeCRXFilterImpl#destroy()}
+     *   <li>{@link AEMEnvironmentBadgeCRXFilterImpl#init(FilterConfig)}
+     * </ul>
+     */
+    @Test
+    void doFilter_inherited() {
+        assertDoesNotThrow(() -> filter.init(null));
+        assertDoesNotThrow(() -> filter.destroy());
     }
 
 }

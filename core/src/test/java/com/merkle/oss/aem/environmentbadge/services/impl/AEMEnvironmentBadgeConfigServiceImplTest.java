@@ -48,6 +48,13 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
         assertTrue(aemEnvironmentBadgeConfigService.isEnableBadge());
         assertEquals(BackgroundColor.BLUE.getColor(), aemEnvironmentBadgeConfigService.getBadgeBackgroundColor());
         assertEquals("title", aemEnvironmentBadgeConfigService.getBadgeTitle());
+
+        when(config.enableDocumentTitlePrefix()).thenReturn(false);
+        assertFalse(aemEnvironmentBadgeConfigService.isEnableDocumentTitlePrefix());
+
+        when(config.enableDocumentTitlePrefix()).thenReturn(true);
+        when(config.documentTitlePrefix()).thenReturn(null);
+        assertFalse(aemEnvironmentBadgeConfigService.isEnableDocumentTitlePrefix());
     }
 
     /**
