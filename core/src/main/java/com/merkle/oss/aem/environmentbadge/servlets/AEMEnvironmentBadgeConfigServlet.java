@@ -10,7 +10,7 @@ import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPathsStrict;
 import org.apache.sling.servlets.post.JSONResponse;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
@@ -64,7 +64,10 @@ public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
      * @see SlingSafeMethodsServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)
      */
     @Override
-    protected void doGet(@NotNull final SlingHttpServletRequest request, @NotNull final SlingHttpServletResponse response) throws IOException {
+    protected void doGet(@NonNull final SlingHttpServletRequest request, @NonNull final SlingHttpServletResponse response) throws IOException {
+        Objects.requireNonNull(request);
+        Objects.requireNonNull(response);
+
         response.setContentType(JSONResponse.RESPONSE_CONTENT_TYPE);
 
         final Map<String, Object> configurationDto = new HashMap<>();

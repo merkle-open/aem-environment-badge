@@ -1,5 +1,7 @@
 package com.merkle.oss.aem.environmentbadge.services;
 
+import org.jspecify.annotations.NonNull;
+
 /**
  * Service interface for retrieving configuration settings related to the AEM Environment Badge.
  *
@@ -21,7 +23,7 @@ public interface AEMEnvironmentBadgeConfigService {
      *
      * @return The configured document title prefix (e.g., {@code <PREFIX> | <DOCUMENT TITLE>}).
      */
-    String getDocumentTitlePrefix();
+    @NonNull String getDocumentTitlePrefix();
 
     /**
      * Checks if the visual environment badge component is enabled for rendering in the AEM UI.
@@ -35,13 +37,13 @@ public interface AEMEnvironmentBadgeConfigService {
      *
      * @return The configured badge title text.
      */
-    String getBadgeTitle();
+    @NonNull String getBadgeTitle();
 
     /**
      * Retrieves the color string used to style the environment badge and its associated bar.
      *
      * @return The configured background color string.
      */
-    String getBadgeBackgroundColor();
+    @NonNull String getBadgeBackgroundColor();
 
 }

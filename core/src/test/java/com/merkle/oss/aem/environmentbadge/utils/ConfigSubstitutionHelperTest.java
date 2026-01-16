@@ -34,6 +34,7 @@ class ConfigSubstitutionHelperTest {
      */
     @Test
     void create_ShouldReturnNewInstance() {
+        assertThrows(NullPointerException.class, () -> ConfigSubstitutionHelper.create(null));
         assertNotNull(helper, "The factory method should return a non-null instance.");
         assertInstanceOf(ConfigSubstitutionHelper.class, helper, "The returned object must be of the correct type.");
     }

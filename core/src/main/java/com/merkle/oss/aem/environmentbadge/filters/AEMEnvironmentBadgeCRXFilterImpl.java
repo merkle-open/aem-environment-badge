@@ -6,6 +6,7 @@ import com.merkle.oss.aem.environmentbadge.services.AEMEnvironmentBadgeConfigSer
 import com.merkle.oss.aem.environmentbadge.utils.ConfigSubstitutionHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringSubstitutor;
+import org.jspecify.annotations.NonNull;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
@@ -15,10 +16,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A servlet filter that captures the outgoing response content, allows it to be
@@ -60,7 +58,11 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
     private AEMEnvironmentBadgeConfigService aemEnvironmentBadgeConfigService;
 
     @Override
-    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
+    public void doFilter(@NonNull final ServletRequest request, @NonNull final ServletResponse response, @NonNull final FilterChain chain) throws IOException, ServletException {
+        Objects.requireNonNull(request);
+        Objects.requireNonNull(response);
+        Objects.requireNonNull(chain);
+
         // Abort further processing if settings are not enabled
         if (!aemEnvironmentBadgeConfigService.isEnableBadge() && !aemEnvironmentBadgeConfigService.isEnableDocumentTitlePrefix()) {
             chain.doFilter(request, response);
@@ -93,11 +95,11 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
         response.getWriter().write(modifiedContent);
     }
 
-    private boolean accepts(final HttpServletRequest httpServletRequest) {
+    private boolean accepts(@NonNull final HttpServletRequest httpServletRequest) {
         return ACCEPTED_PATHS.contains(httpServletRequest.getRequestURI());
     }
 
-    private Map<String, String> createSubstitutionValues() {
+    private @NonNull Map<String, String> createSubstitutionValues() {
         final Map<String, String> substitutionValues = new HashMap<>();
         substitutionValues.put(ConfigSubstitutionHelper.PLACEHOLDER_DOCUMENT_TITLE_PREFIX, aemEnvironmentBadgeConfigService.getDocumentTitlePrefix());
         final String backgroundColorCode = BackgroundColor.of(aemEnvironmentBadgeConfigService.getBadgeBackgroundColor()).getColorCode();
@@ -105,7 +107,7 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
         return substitutionValues;
     }
 
-    private String createModifiedContent(final String originalContent, final ConfigSubstitutionHelper substitutionHelper) {
+    private @NonNull String createModifiedContent(@NonNull final String originalContent, @NonNull final ConfigSubstitutionHelper substitutionHelper) {
         final StringBuilder stringBuilder = new StringBuilder(StringUtils.substringBeforeLast(originalContent, "</body></html>"))
                 .append("\n<!-- AEM Environment Badge - Start -->")
                 .append("\n");
@@ -128,7 +130,7 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
         return stringBuilder.toString();
     }
 
-    private String createDocumentTitlePrefixScript() {
+    private @NonNull String createDocumentTitlePrefixScript() {
         return new StringBuilder("<script>(function(){const t='")
                 .append(StringSubstitutor.DEFAULT_VAR_START)
                 .append(ConfigSubstitutionHelper.PLACEHOLDER_DOCUMENT_TITLE_PREFIX)
@@ -137,7 +139,7 @@ public class AEMEnvironmentBadgeCRXFilterImpl implements Filter {
                 .toString();
     }
 
-    private String createCSSStyleScript() {
+    private @NonNull String createCSSStyleScript() {
         return new StringBuilder("<style>#")
                 .append(BAR_DIV_ID)
                 .append("{")

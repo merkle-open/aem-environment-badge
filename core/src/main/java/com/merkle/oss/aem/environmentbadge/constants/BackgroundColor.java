@@ -1,9 +1,10 @@
 package com.merkle.oss.aem.environmentbadge.constants;
 
 import org.apache.commons.lang3.Strings;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Arrays;
-
 
 /**
  * Represents the allowed background colors for the AEM Environment Badge component.
@@ -31,7 +32,7 @@ public enum BackgroundColor {
      * @param color     The descriptive name of the color (e.g., "red").
      * @param colorCode The hex code of the color (e.g., "#d7373f").
      */
-    BackgroundColor(final String color, final String colorCode) {
+    BackgroundColor(@NonNull final String color, @NonNull final String colorCode) {
         this.color = color;
         this.colorCode = colorCode;
     }
@@ -41,7 +42,7 @@ public enum BackgroundColor {
      *
      * @return The color name (e.g., "red").
      */
-    public String getColor() {
+    public @NonNull String getColor() {
         return color;
     }
 
@@ -50,10 +51,9 @@ public enum BackgroundColor {
      *
      * @return The color hex code (e.g., "#d7373f").
      */
-    public String getColorCode() {
+    public @NonNull String getColorCode() {
         return colorCode;
     }
-
 
     /**
      * {@inheritDoc}
@@ -61,7 +61,7 @@ public enum BackgroundColor {
      * @see Enum#toString()
      */
     @Override
-    public String toString() {
+    public @NonNull String toString() {
         return getColor();
     }
 
@@ -73,7 +73,7 @@ public enum BackgroundColor {
      * @param type The descriptive color name (e.g., "blue") to search for.
      * @return The matching {@code BackgroundColor} constant. Returns {@link #FUCHSIA} if no match is found.
      */
-    public static BackgroundColor of(final String type) {
+    public static @NonNull BackgroundColor of(@Nullable final String type) {
         return Arrays.stream(BackgroundColor.values())
                 .filter(color -> Strings.CS.equals(color.getColor(), type))
                 .findFirst()

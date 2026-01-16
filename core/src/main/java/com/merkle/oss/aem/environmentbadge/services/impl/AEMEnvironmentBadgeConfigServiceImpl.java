@@ -2,6 +2,7 @@ package com.merkle.oss.aem.environmentbadge.services.impl;
 
 import com.merkle.oss.aem.environmentbadge.services.AEMEnvironmentBadgeConfigService;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.NonNull;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -12,6 +13,8 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.osgi.service.metatype.annotations.Option;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Objects;
 
 /**
  * Component implementing the {@link AEMEnvironmentBadgeConfigService}.
@@ -38,7 +41,9 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      */
     @Activate
     @Modified
-    public void activate(final AEMEnvironmentBadgeConfig config) {
+    public void activate(@NonNull final AEMEnvironmentBadgeConfig config) {
+        Objects.requireNonNull(config);
+
         this.config = config;
         LOG.info("AEM Environment Badge Config - Service activated.");
     }
@@ -55,7 +60,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      * {@inheritDoc}
      */
     @Override
-    public String getDocumentTitlePrefix() {
+    public @NonNull String getDocumentTitlePrefix() {
         return config.documentTitlePrefix();
     }
 
@@ -72,7 +77,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      * {@inheritDoc}
      */
     @Override
-    public String getBadgeTitle() {
+    public @NonNull String getBadgeTitle() {
         return config.badgeTitle();
     }
 
@@ -80,7 +85,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      * {@inheritDoc}
      */
     @Override
-    public String getBadgeBackgroundColor() {
+    public @NonNull String getBadgeBackgroundColor() {
         return config.badgeBackgroundColor();
     }
 

@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Unit tests for the {@link AEMEnvironmentBadgeConfigServlet} class.
@@ -67,6 +68,17 @@ class AEMEnvironmentBadgeConfigServletTest {
         final JsonElement expected = JsonParser.parseString(expectedJson);
         final JsonElement actual = JsonParser.parseString(actualJson);
         assertEquals(expected, actual);
+    }
+
+    /**
+     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
+     */
+    @Test
+    void doGet_null(final AemContext context) {
+        final MockSlingHttpServletRequest request = context.request();
+        final MockSlingHttpServletResponse response = context.response();
+        assertThrows(NullPointerException.class, () -> fixture.doGet(null, response));
+        assertThrows(NullPointerException.class, () -> fixture.doGet(request, null));
     }
 
     /**

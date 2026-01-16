@@ -28,6 +28,7 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
      */
     @Test
     void testActivate() {
+        assertThrows(NullPointerException.class, () -> aemEnvironmentBadgeConfigService.activate(null));
         assertDoesNotThrow(() -> aemEnvironmentBadgeConfigService.activate(config));
     }
 

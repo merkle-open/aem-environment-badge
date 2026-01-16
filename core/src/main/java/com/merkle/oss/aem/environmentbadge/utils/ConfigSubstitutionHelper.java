@@ -1,9 +1,12 @@
 package com.merkle.oss.aem.environmentbadge.utils;
 
 import org.apache.commons.text.StringSubstitutor;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Helper class for performing variable substitution with configuration strings.
@@ -39,7 +42,9 @@ public class ConfigSubstitutionHelper {
      *                           (without prefix/suffix, e.g., "variable_name") and
      *                           values are the replacement strings.
      */
-    private ConfigSubstitutionHelper(final Map<String, String> substitutionValues) {
+    private ConfigSubstitutionHelper(@NonNull final Map<String, String> substitutionValues) {
+        Objects.requireNonNull(substitutionValues);
+
         this.substitutor = new StringSubstitutor(new HashMap<>(substitutionValues));
     }
 
@@ -51,7 +56,7 @@ public class ConfigSubstitutionHelper {
      *                           strings to substitute in.
      * @return A new, initialized {@code ConfigSubstitutionHelper} instance.
      */
-    public static ConfigSubstitutionHelper create(final Map<String, String> substitutionValues) {
+    public static @NonNull ConfigSubstitutionHelper create(@NonNull final Map<String, String> substitutionValues) {
         return new ConfigSubstitutionHelper(substitutionValues);
     }
 
@@ -64,7 +69,7 @@ public class ConfigSubstitutionHelper {
      * If no substitution values are found for a placeholder, it may be left
      * unmodified depending on the underlying substitution mechanism's configuration.
      */
-    public String replace(final String source) {
+    public @Nullable String replace(@Nullable final String source) {
         return substitutor.replace(source);
     }
 

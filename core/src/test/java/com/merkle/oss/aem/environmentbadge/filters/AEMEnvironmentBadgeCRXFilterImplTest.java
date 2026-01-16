@@ -20,6 +20,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -50,6 +51,16 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
 
     private final String ORIGINAL_RESPONSE = "<html><head><title>Original Title</title></head><body>Content</body></html>";
     private final String CRX_DE_PATH = "/crx/de/index.jsp";
+
+    /**
+     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     */
+    @Test
+    void doFilter_NotEnabled_null() {
+        assertThrows(NullPointerException.class, () -> filter.doFilter(null, response, chain));
+        assertThrows(NullPointerException.class, () -> filter.doFilter(request, null, chain));
+        assertThrows(NullPointerException.class, () -> filter.doFilter(request, response, null));
+    }
 
     /**
      * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
