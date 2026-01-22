@@ -42,7 +42,7 @@ public class AEMEnvironmentBadgeConfigServiceImpl implements AEMEnvironmentBadge
      */
     @Activate
     @Modified
-    public void activate(@NonNull final AEMEnvironmentBadgeConfig config) {
+    protected void activate(@NonNull final AEMEnvironmentBadgeConfig config) {
         Objects.requireNonNull(config);
 
         this.config = config;

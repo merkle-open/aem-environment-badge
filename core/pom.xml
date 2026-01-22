@@ -42,8 +42,7 @@
                             <bnd><![CDATA[
 Bundle-Category: merkle.oss
 Bundle-SymbolicName: aem-environment-badge.core-bundle
-Import-Package: javax.annotation;version=0.0.0,*\
-!org.jspecify.annotations,
+Import-Package: javax.annotation;version=0.0.0,*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -77,8 +76,7 @@ Import-Package: javax.annotation;version=0.0.0,*\
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
@@ -89,6 +87,16 @@ Import-Package: javax.annotation;version=0.0.0,*\
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
+            <groupId>org.jspecify</groupId>
+            <artifactId>jspecify</artifactId>
+        </dependency>
+        <!-- Testing -->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.github.valfirst</groupId>
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
@@ -98,15 +106,6 @@ Import-Package: javax.annotation;version=0.0.0,*\
             <artifactId>gson</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jspecify</groupId>
-            <artifactId>jspecify</artifactId>
-        </dependency>
-        <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

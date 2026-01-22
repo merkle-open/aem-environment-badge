@@ -24,7 +24,7 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
     private AEMEnvironmentBadgeConfigServiceImpl aemEnvironmentBadgeConfigService = new AEMEnvironmentBadgeConfigServiceImpl();
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#activate(AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig)}
+     * Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#activate(AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig)}
      */
     @Test
     void testActivate() {
@@ -33,7 +33,14 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#activate(AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig)}
+     * Methods under test:
+     * <ul>
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#isEnableDocumentTitlePrefix()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#getDocumentTitlePrefix()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#isEnableBadge()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#getBadgeBackgroundColor()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#getBadgeTitle()}
+     * </ul>
      */
     @Test
     void testGetters_PrefixTitleSet() {
@@ -58,7 +65,7 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#activate(AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig)}
+     * Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#isEnableDocumentTitlePrefix()}
      */
     @Test
     void testGetters_PrefixTitleNotSet() {
@@ -69,7 +76,12 @@ public class AEMEnvironmentBadgeConfigServiceImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServiceImpl#activate(AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig)}
+     * Methods under test:
+     * <ul>
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#isEnableBadge()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#getBadgeBackgroundColor()}
+     *   <li>{@link AEMEnvironmentBadgeConfigServiceImpl#getBadgeTitle()}
+     * </ul>
      */
     @Test
     void testGetters_BadgeTitleNotSet() {

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BackgroundColorTest {
 
     /**
-     * <p>Methods under test:
+     * Methods under test:
      *
      * <ul>
      *   <li>{@link BackgroundColor#toString()}
@@ -30,7 +30,7 @@ class BackgroundColorTest {
     }
 
     /**
-     * <p>Method under test: {@link BackgroundColor#of(String)}
+     * Method under test: {@link BackgroundColor#of(String)}
      */
     @Test
     void testOf_whenBlue_thenReturnBlue() {
@@ -38,7 +38,7 @@ class BackgroundColorTest {
     }
 
     /**
-     * <p>Method under test: {@link BackgroundColor#of(String)}
+     * Method under test: {@link BackgroundColor#of(String)}
      */
     @Test
     void testOf_whenType_thenReturnFuchsia() {

@@ -169,14 +169,19 @@
                     <doclint>none</doclint>
                     <tags>
                         <tag>
-                            <name>exampleUsage</name>
-                            <placement>a</placement>
-                            <head>Example usage:</head>
-                        </tag>
-                        <tag>
                             <name>apiNote</name>
                             <placement>a</placement>
-                            <head>API note:</head>
+                            <head>API Note:</head>
+                        </tag>
+                        <tag>
+                            <name>implSpec</name>
+                            <placement>a</placement>
+                            <head>Implementation Requirements:</head>
+                        </tag>
+                        <tag>
+                            <name>implNote</name>
+                            <placement>a</placement>
+                            <head>Implementation Note:</head>
                         </tag>
                     </tags>
                 </configuration>
@@ -288,7 +293,9 @@
                                 <bnd>
                                     Bundle-Category: ${componentGroupName}
 
-                                    -exportcontents: com.merkle.oss.aem.environmentbadge*
+                                    -conditionalpackage: org.jspecify.*
+
+                                    -exportcontents: com.merkle.oss.aem.environmentbadge*, org.jspecify.annotations.*
 
                                     # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
                                     -noextraheaders: true
@@ -633,6 +640,13 @@
                 <groupId>org.jspecify</groupId>
                 <artifactId>jspecify</artifactId>
                 <version>${org.jspecify.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collection.version}</version>
+                <scope>provided</scope>
             </dependency>
             <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
             <dependency>
@@ -678,12 +692,6 @@
                         <artifactId>org.apache.sling.scripting.api</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collection.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.github.valfirst</groupId>

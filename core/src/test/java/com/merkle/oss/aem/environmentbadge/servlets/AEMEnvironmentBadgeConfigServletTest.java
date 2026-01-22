@@ -32,7 +32,7 @@ class AEMEnvironmentBadgeConfigServletTest {
     private final AEMEnvironmentBadgeConfigServlet fixture = new AEMEnvironmentBadgeConfigServlet();
 
     /**
-     * <p>Method under test: helper to inject a value into a private field via reflection.
+     * Method under test: helper to inject a value into a private field via reflection.
      *
      * <p>This is used to wire OSGi {@code @Reference}-style dependencies into the servlet instance
      * in a plain unit test (without starting a real OSGi container).
@@ -56,7 +56,7 @@ class AEMEnvironmentBadgeConfigServletTest {
     }
 
     /**
-     * <p>Method under test: helper to compare two JSON strings structurally.
+     * Method under test: helper to compare two JSON strings structurally.
      *
      * <p>This avoids brittle assertions that can fail due to key ordering or whitespace differences
      * even when the JSON documents are semantically identical.
@@ -71,7 +71,7 @@ class AEMEnvironmentBadgeConfigServletTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
+     * Method under test: {@link AEMEnvironmentBadgeConfigServlet@doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
      */
     @Test
     void doGet_null(final AemContext context) {
@@ -82,7 +82,7 @@ class AEMEnvironmentBadgeConfigServletTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
+     * Method under test: {@link AEMEnvironmentBadgeConfigServlet@doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
      */
     @Test
     void doGet_emptyObject(final AemContext context) throws IOException {
@@ -95,7 +95,7 @@ class AEMEnvironmentBadgeConfigServletTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeConfigServlet#doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
+     * Method under test: {@link AEMEnvironmentBadgeConfigServlet@doGet(SlingHttpServletRequest, SlingHttpServletResponse)}.
      */
     @Test
     void doGet_settingsObject(final AemContext context) throws IOException {

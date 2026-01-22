@@ -51,7 +51,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     private final String CRX_DE_PATH = "/crx/de/index.jsp";
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_NotEnabled_null() {
@@ -61,7 +61,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_NotEnabled_ShouldAbortAndPassThrough() throws IOException, ServletException {
@@ -77,7 +77,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_PathNotAccepted_ShouldAbortAndPassThrough() throws IOException, ServletException {
@@ -93,7 +93,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_AcceptedPathAndBadgeEnabled_ShouldModifyAndWriteContent() throws Exception {
@@ -132,7 +132,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_AcceptedPathAndPrefixEnabled_ShouldModifyAndWriteContent() throws Exception {
@@ -171,7 +171,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
+     * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
      */
     @Test
     void doFilter_AcceptedPathAndAllEnabled_ShouldModifyAndWriteContent() throws Exception {
@@ -213,7 +213,7 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     }
 
     /**
-     * <p>Methods under test:
+     * Methods under test:
      * <ul>
      *   <li>{@link AEMEnvironmentBadgeCRXFilterImpl#destroy()}
      *   <li>{@link AEMEnvironmentBadgeCRXFilterImpl#init(FilterConfig)}

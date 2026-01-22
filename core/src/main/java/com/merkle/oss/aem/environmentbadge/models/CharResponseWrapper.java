@@ -17,7 +17,8 @@ import java.io.PrintWriter;
  * or appended before being sent to the client.
  * </p>
  *
- * @apiNote <ul>
+ * @apiNote the following limitations apply to this wrapper:
+ * <ul>
  * <li>This wrapper only supports character output via {@link #getWriter()}.
  * It does not override {@link #getOutputStream()}; therefore, it should
  * only be used for text-based responses (HTML, JSON, XML, etc.).</li>
@@ -26,13 +27,14 @@ import java.io.PrintWriter;
  * <li>The wrapper does not automatically write data back to the original
  * response; users of this class must handle that manually.</li>
  * </ul>
- * @exampleUsage <pre>{@code
+ * Example usage:
+ * {@snippet :
  * CharResponseWrapper wrappedResponse = new CharResponseWrapper(response);
  * filterChain.doFilter(request, wrappedResponse);
  * String output = wrappedResponse.getCapturedOutput();
  * // modify output...
  * response.getWriter().write(output);
- * }</pre>
+ *}
  */
 public class CharResponseWrapper extends HttpServletResponseWrapper {
 

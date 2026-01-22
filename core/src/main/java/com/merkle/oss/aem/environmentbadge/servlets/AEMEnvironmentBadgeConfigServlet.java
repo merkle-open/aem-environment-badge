@@ -19,6 +19,7 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 import javax.servlet.Servlet;
 import java.io.IOException;
 import java.io.Serial;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -68,6 +69,7 @@ public class AEMEnvironmentBadgeConfigServlet extends SlingSafeMethodsServlet {
         Objects.requireNonNull(request);
         Objects.requireNonNull(response);
 
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         response.setContentType(JSONResponse.RESPONSE_CONTENT_TYPE);
 
         final Map<String, Object> configurationDto = new HashMap<>();

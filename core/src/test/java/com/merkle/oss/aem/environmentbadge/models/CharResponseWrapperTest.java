@@ -20,7 +20,7 @@ class CharResponseWrapperTest {
     private HttpServletResponse response;
 
     /**
-     * <p>Method under test: {@link CharResponseWrapper#CharResponseWrapper(HttpServletResponse)}
+     * Method under test: {@link CharResponseWrapper#CharResponseWrapper(HttpServletResponse)}
      */
     @Test
     void testNewCharResponseWrapper() {
@@ -29,7 +29,7 @@ class CharResponseWrapperTest {
     }
 
     /**
-     * <p>Method under test: {@link CharResponseWrapper#getWriter()}
+     * Method under test: {@link CharResponseWrapper#getWriter()}
      */
     @Test
     void testGetWriter_thenReturnNotCheckError() {
@@ -37,7 +37,7 @@ class CharResponseWrapperTest {
     }
 
     /**
-     * <p>Method under test: {@link CharResponseWrapper#getCapturedOutput()}
+     * Method under test: {@link CharResponseWrapper#getCapturedOutput()}
      */
     @Test
     void testGetCapturedOutput_thenReturnEmptyString() {

@@ -30,7 +30,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#create(Map)}
+     * Method under test: {@link ConfigSubstitutionHelper#create(Map)}
      */
     @Test
     void create_ShouldReturnNewInstance() {
@@ -40,7 +40,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldReplaceKnownPlaceholders() {
@@ -53,7 +53,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldReplaceCustomPlaceholder() {
@@ -66,7 +66,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldHandleMultipleOccurrencesOfTheSamePlaceholder() {
@@ -79,7 +79,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldHandleSourceStringWithNoPlaceholders() {
@@ -91,7 +91,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldLeaveUnknownPlaceholderUnmodified() {
@@ -104,7 +104,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldHandleEmptySourceString() {
@@ -117,7 +117,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#replace(String)}
+     * Method under test: {@link ConfigSubstitutionHelper#replace(String)}
      */
     @Test
     void replace_ShouldHandleNullSourceString() {
@@ -127,7 +127,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#create(Map)}
+     * Method under test: {@link ConfigSubstitutionHelper#create(Map)}
      */
     @Test
     void create_ShouldHandleEmptySubstitutionMap() {
@@ -140,7 +140,7 @@ class ConfigSubstitutionHelperTest {
     }
 
     /**
-     * <p>Method under test: {@link ConfigSubstitutionHelper#create(Map)}
+     * Method under test: {@link ConfigSubstitutionHelper#create(Map)}
      */
     @Test
     void create_ShouldHandleMapImmutability() {
