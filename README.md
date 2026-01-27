@@ -48,7 +48,7 @@ authoring in the wrong instance.
 
 Add the `aem-environment-badge.all` artifact to the `<dependencies>` section
 
-   ```xml
+```xml
 
 <dependency>
     <groupId>com.merkle.oss.aem</groupId>
@@ -57,13 +57,13 @@ Add the `aem-environment-badge.all` artifact to the `<dependencies>` section
     <type>zip</type>
 </dependency>
 
-   ```
+```
 
 ### Package embedding
 
 Embed the package into your `all` deployment module using the `filevault-package-maven-plugin`:
 
-   ```xml
+```xml
 
 <embedded>
     <groupId>com.merkle.oss.aem</groupId>
@@ -71,7 +71,7 @@ Embed the package into your `all` deployment module using the `filevault-package
     <target>/apps/{your/install/path}/install</target>
 </embedded>
 
-   ```
+```
 
 ### Configuration
 
@@ -118,6 +118,18 @@ Build and deploy the full package to a local AEM Author:
 ```
     mvn clean install -PautoInstallPackage
 ```
+
+## Compatibility & Requirements
+
+### AEM Version
+
+This tool requires **AEM Version 2025.9.x** or higher.
+
+### Platform Support
+
+- **AEM as a Cloud Service (AEMaaCS):** This tool is primarily designed and optimized for Cloud Service environments.
+- **AEM On-Premise / Adobe Managed Services:** While the codebase is compatible with standard AEM On-Premise
+  installations, please note that it has not been formally tested in these environments.
 
 ---
 
