@@ -27,6 +27,7 @@ import java.io.PrintWriter;
  * <li>The wrapper does not automatically write data back to the original
  * response; users of this class must handle that manually.</li>
  * </ul>
+ * <p>
  * Example usage:
  * {@snippet :
  * CharResponseWrapper wrappedResponse = new CharResponseWrapper(response);

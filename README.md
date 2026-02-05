@@ -3,8 +3,8 @@
 <p align="center">
     <a href="https://maven-badges.sml.io/sonatype-central/com.merkle.oss.aem/aem-environment-badge/">
         <img alt="Sonatype Central Version" src="https://img.shields.io/maven-central/v/com.merkle.oss.aem/aem-environment-badge?strategy=highestVersion&logo=sonatype&logoColor=white&logoSize=auto&label=sonatype-central&color=blue&link=https%3A%2F%2Fmaven-badges.sml.io%2Fsonatype-central%2Fcom.merkle.oss.aem%2Faem-environment-badge%2F"></a>
-    <a href="https://javadoc.io/doc/com.merkle.oss.aem/aem-environment-badge">
-        <img alt="Javadoc" src="https://javadoc.io/badge2/com.merkle.oss.aem/aem-environment-badge/javadoc.svg?color=yellow"></a>
+    <a href="https://javadoc.io/doc/com.merkle.oss.aem/aem-environment-badge.core-bundle">
+        <img alt="Javadoc" src="https://javadoc.io/badge2/com.merkle.oss.aem/aem-environment-badge.core-bundle/javadoc.svg?color=yellow"></a>
     <a href="https://sonarcloud.io/summary/overall?id=merkle-open_aem-environment-badge&branch=master">
         <img alt="SonarQube - Quality Gate" src="https://sonarcloud.io/api/project_badges/measure?project=merkle-open_aem-environment-badge&metric=alert_status"></a>
     <a href="https://sonarcloud.io/summary/overall?id=merkle-open_aem-environment-badge&branch=master">
