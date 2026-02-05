@@ -9,7 +9,7 @@
     <groupId>com.merkle.oss.aem</groupId>
     <artifactId>aem-environment-badge</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>AEM Environment Badge</name>
     <description>Maven Multimodule project for AEM Environment Badge</description>
     <url>https://github.com/merkle-open/aem-environment-badge</url>
@@ -124,9 +124,8 @@
         <junit.version>6.0.2</junit.version>
         <mockito.version>5.21.0</mockito.version>
         <io.wcm.testing.aem-mock.junit5.version>5.6.14</io.wcm.testing.aem-mock.junit5.version>
-        <commons.collection.version>3.2.2</commons.collection.version>
-        <slf4j-test.version>3.0.3</slf4j-test.version>
         <gson.version>2.13.2</gson.version>
+        <slf4j-simple.version>2.0.17</slf4j-simple.version>
         <byte-buddy.version>1.18.4</byte-buddy.version>
         <org.apache.sling.api.version>3.0.2</org.apache.sling.api.version>
         <org.apache.sling.models.impl.version>2.0.0</org.apache.sling.models.impl.version>
@@ -158,6 +157,14 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${mvn.source.plugin.version}</version>
                 <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!-- Maven Javadocs Plugin -->
             <plugin>
@@ -290,21 +297,30 @@
                                 <goal>bnd-process</goal>
                             </goals>
                             <configuration>
-                                <bnd>
+                                <bnd><![CDATA[
                                     Bundle-Category: ${componentGroupName}
+                                    Bundle-DocURL: https://github.com/merkle-open/aem-environment-badge
 
-                                    -conditionalpackage: org.jspecify.*
+                                     -conditionalpackage: \
+                                    org.jspecify.*
 
-                                    -exportcontents: com.merkle.oss.aem.environmentbadge*, org.jspecify.annotations.*
+                                    -exportcontents: \
+                                    com.merkle.oss.aem.environmentbadge*
 
-                                    # reproducible builds (https://github.com/bndtools/bnd/issues/3521)
+                                    # This explicitly prevents these from appearing in Import-Package
+                                    Import-Package: \
+                                    !org.jspecify.*, \
+                                    *
+
+                                    -fixupmessages.one: "Export com.merkle.oss.aem.environmentbadge.*jspecify.*";is:=ignore
+                                    -fixupmessages.two: "Export *,  has \\d+,  private references"; restrict:=warning; is:=error
+
                                     -noextraheaders: true
                                     -snapshot: SNAPSHOT
 
-                                    Bundle-DocURL:
-                                    -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
-                                    -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
-                                </bnd>
+                                    -plugin.caconfig: org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
+                                    -plugin.models: org.apache.sling.bnd.models.ModelsScannerPlugin
+                                ]]></bnd>
                             </configuration>
                         </execution>
                     </executions>
@@ -354,6 +370,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${mvn.surefire.plugin.version}</version>
+                    <configuration>
+                        <argLine>
+                            @{argLine}
+                            -XX:+EnableDynamicAgentLoading
+                            -Xshare:off
+                        </argLine>
+                    </configuration>
                 </plugin>
                 <!-- Maven Failsafe Plugin -->
                 <plugin>
@@ -640,13 +663,7 @@
                 <groupId>org.jspecify</groupId>
                 <artifactId>jspecify</artifactId>
                 <version>${org.jspecify.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collection.version}</version>
-                <scope>provided</scope>
+                <scope>compile</scope>
             </dependency>
             <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
             <dependency>
@@ -691,18 +708,22 @@
                         <groupId>org.apache.sling</groupId>
                         <artifactId>org.apache.sling.scripting.api</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                    </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.github.valfirst</groupId>
-                <artifactId>slf4j-test</artifactId>
-                <version>${slf4j-test.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>${gson.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j-simple.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

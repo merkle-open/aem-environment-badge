@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.merkle.oss.aem</groupId>
         <artifactId>aem-environment-badge</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -40,10 +40,10 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Bundle-Category: merkle.oss
-Bundle-SymbolicName: aem-environment-badge.core-bundle
-Import-Package: javax.annotation;version=0.0.0,*
-                                ]]></bnd>
+                                Bundle-Category: merkle.oss
+                                Bundle-SymbolicName: aem-environment-badge.core-bundle
+                                Import-Package: javax.annotation;version=0.0.0,*
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
@@ -92,21 +92,6 @@ Import-Package: javax.annotation;version=0.0.0,*
         </dependency>
         <!-- Testing -->
         <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.valfirst</groupId>
-            <artifactId>slf4j-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -124,6 +109,21 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>io.wcm</groupId>
             <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

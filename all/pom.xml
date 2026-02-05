@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.merkle.oss.aem</groupId>
         <artifactId>aem-environment-badge</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -33,6 +33,12 @@
                 <configuration>
                     <group>com.merkle.oss.aem</group>
                     <packageType>container</packageType>
+                    <repositoryStructurePackages>
+                        <repositoryStructurePackage>
+                            <groupId>com.merkle.oss.aem</groupId>
+                            <artifactId>aem-environment-badge.ui.apps.structure</artifactId>
+                        </repositoryStructurePackage>
+                    </repositoryStructurePackages>
                     <embeddeds>
                         <embedded>
                             <groupId>com.merkle.oss.aem</groupId>
@@ -46,6 +52,11 @@
                             <target>/apps/merkle/environment-badge/install</target>
                         </embedded>
                     </embeddeds>
+                    <thumbnailImage>${project.basedir}/src/main/content/META-INF/vault/definition/thumbnail.png
+                    </thumbnailImage>
+                    <excludes>
+                        <exclude>META-INF/vault/definition/thumbnail.png</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -120,6 +131,12 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
+        <dependency>
+            <groupId>com.merkle.oss.aem</groupId>
+            <artifactId>aem-environment-badge.ui.apps.structure</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
         <dependency>
             <groupId>com.merkle.oss.aem</groupId>
             <artifactId>aem-environment-badge.ui.apps</artifactId>
