@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
  * Unit tests for the {@link AEMEnvironmentBadgeConfigServiceImpl} class.
  */
 @ExtendWith(MockitoExtension.class)
-public class AEMEnvironmentBadgeConfigServiceImplTest {
+class AEMEnvironmentBadgeConfigServiceImplTest {
 
     @Mock
     private AEMEnvironmentBadgeConfigServiceImpl.AEMEnvironmentBadgeConfig config;

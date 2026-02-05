@@ -47,8 +47,8 @@ class AEMEnvironmentBadgeCRXFilterImplTest {
     private final StringWriter responseWriter = new StringWriter();
     private final PrintWriter printWriter = new PrintWriter(responseWriter);
 
-    private final String ORIGINAL_RESPONSE = "<html><head><title>Original Title</title></head><body>Content</body></html>";
-    private final String CRX_DE_PATH = "/crx/de/index.jsp";
+    private static final String ORIGINAL_RESPONSE = "<html><head><title>Original Title</title></head><body>Content</body></html>";
+    private static final String CRX_DE_PATH = "/crx/de/index.jsp";
 
     /**
      * Method under test: {@link AEMEnvironmentBadgeCRXFilterImpl#doFilter(ServletRequest, ServletResponse, FilterChain)}
