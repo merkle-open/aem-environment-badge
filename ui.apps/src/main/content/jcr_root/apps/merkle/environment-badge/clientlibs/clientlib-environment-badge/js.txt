@@ -1,0 +1,6 @@
+#base=js
+
+namespace.Merkle.js
+Merkle.EnvironmentBadge.BadgeHelper.js
+Merkle.EnvironmentBadge.Badge.js
+init.js
