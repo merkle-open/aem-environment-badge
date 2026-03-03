@@ -727,12 +727,6 @@
                 <version>${slf4j-simple.version}</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>net.bytebuddy</groupId>
-                <artifactId>byte-buddy</artifactId>
-                <version>${byte-buddy.version}</version>
-                <scope>test</scope>
-            </dependency>
             <!-- Required to be able to support injection with @Self and @Via -->
             <dependency>
                 <groupId>org.apache.sling</groupId>
