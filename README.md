@@ -53,7 +53,7 @@ Add the `aem-environment-badge.all` artifact to the `<dependencies>` section
 <dependency>
     <groupId>com.merkle.oss.aem</groupId>
     <artifactId>aem-environment-badge.all</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <type>zip</type>
 </dependency>
 
