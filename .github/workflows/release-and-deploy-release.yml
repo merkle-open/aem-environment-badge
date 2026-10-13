@@ -129,14 +129,12 @@ jobs:
         with:
           ref: master
 
-      # Run before setup-java so its Central credentials remain in settings.xml.
+      # Force maven version due to plugin issue
+      # https://github.com/mavenplugins/central-publishing-maven-plugin/issues/79
       - name: Set up Maven 3.9.16
-        uses: s4u/setup-maven-action@4a02cbd99769e46198135c31d5097c94618ba3f5 # v1.21.0
+        uses: stCarolas/setup-maven@12eb41b233df95d49b0c11fc1b5bc8312e5d4ce0 # v5.1
         with:
           maven-version: 3.9.16
-          checkout-enabled: 'false'
-          java-version: '21'
-          cache-enabled: 'false'
 
       # Setup Java environment
       - name: Set up JDK 21
@@ -145,9 +143,9 @@ jobs:
           distribution: zulu
           java-version: 21
           server-id: central
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          server-username-env-var: MAVEN_USERNAME
+          server-password-env-var: MAVEN_PASSWORD
+          gpg-passphrase-env-var: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
 
@@ -163,18 +161,3 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USER }}
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-
-      # Upload artifacts uploaded to Maven Central to GitHub Actions
-      - name: Upload Release Artifacts
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: central-staging-artifacts
-          path: |
-            target/central-staging/
-            target/central-publishing/
-            **/target/*.jar
-            **/target/*.zip
-            **/target/*.pom
-            **/target/*.asc
-          if-no-files-found: ignore
