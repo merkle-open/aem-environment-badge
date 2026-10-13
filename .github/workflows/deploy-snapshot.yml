@@ -108,13 +108,14 @@ jobs:
           cache: maven
 
       # Pin Maven version
-      - name: Set up Maven 3.9.11
+      - name: Set up Maven 3.9.16
         uses: s4u/setup-maven-action@v1.21.0
         with:
-          maven-version: 3.9.11
+          maven-version: 3.9.16
 
       # Run maven deploy (to Sonatype)
       - name: Release Maven package
+        # Added -DskipTests as verification happened in the first job
         run: mvn deploy -Pdeploy -DskipTests --batch-mode
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USER }}
@@ -123,6 +124,7 @@ jobs:
 
       # Upload artifacts uploaded to Maven Central to GitHub Actions
       - name: Upload Snapshot Artifacts
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: central-staging-artifacts
