@@ -53,7 +53,7 @@ Add the `aem-environment-badge.all` artifact to the `<dependencies>` section
 <dependency>
     <groupId>com.merkle.oss.aem</groupId>
     <artifactId>aem-environment-badge.all</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <type>zip</type>
 </dependency>
 
@@ -123,7 +123,7 @@ Build and deploy the full package to a local AEM Author:
 
 ### AEM Version
 
-This tool requires **AEM Version 2026.1.24222.20260130T132034Z-260100** or higher.
+This tool requires **AEM Version 2026.6.26635.20260611T122956Z-260500** or higher.
 
 ### Platform Support
 
