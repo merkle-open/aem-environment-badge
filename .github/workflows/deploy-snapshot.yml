@@ -94,6 +94,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Run before setup-java so its Central credentials remain in settings.xml.
+      - name: Set up Maven 3.9.16
+        uses: s4u/setup-maven-action@4a02cbd99769e46198135c31d5097c94618ba3f5 # v1.21.0
+        with:
+          maven-version: 3.9.16
+          checkout-enabled: 'false'
+          java-version: '21'
+          cache-enabled: 'false'
+
       # Setup Java environment
       - name: Set up JDK 21
         uses: actions/setup-java@v6
@@ -106,12 +115,6 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
-
-      # Pin Maven version
-      - name: Set up Maven 3.9.16
-        uses: s4u/setup-maven-action@4a02cbd99769e46198135c31d5097c94618ba3f5 # v1.21.0
-        with:
-          maven-version: 3.9.16
 
       # Print Maven version
       - name: Print Maven version
