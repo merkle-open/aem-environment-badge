@@ -113,6 +113,10 @@ jobs:
         with:
           maven-version: 3.9.16
 
+      # Print Maven version
+      - name: Print Maven version
+        run: mvn -version
+
       # Run maven deploy (to Sonatype)
       - name: Release Maven package
         # Added -DskipTests as verification happened in the first job
@@ -128,4 +132,11 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: central-staging-artifacts
-          path: target/central-staging/
+          path: |
+            target/central-staging/
+            target/central-publishing/
+            **/target/*.jar
+            **/target/*.zip
+            **/target/*.pom
+            **/target/*.asc
+          if-no-files-found: ignore
