@@ -107,6 +107,12 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
 
+      # Pin Maven version
+      - name: Set up Maven 3.9.11
+        uses: s4u/setup-maven-action@v1.21.0
+        with:
+          maven-version: 3.9.11
+
       # Run maven deploy (to Sonatype)
       - name: Release Maven package
         run: mvn deploy -Pdeploy -DskipTests --batch-mode
