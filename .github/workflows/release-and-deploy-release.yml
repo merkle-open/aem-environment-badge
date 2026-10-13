@@ -142,6 +142,16 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
 
+      # Pin Maven version
+      - name: Set up Maven 3.9.16
+        uses: s4u/setup-maven-action@4a02cbd99769e46198135c31d5097c94618ba3f5 # v1.21.0
+        with:
+          maven-version: 3.9.16
+
+      # Print Maven version
+      - name: Print Maven version
+        run: mvn -version
+
       # Deploy release (to Sonatype)
       - name: Release Maven package
         # Added -DskipTests as verification happened in the first job
@@ -150,3 +160,18 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USER }}
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+      # Upload artifacts uploaded to Maven Central to GitHub Actions
+      - name: Upload Release Artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: central-staging-artifacts
+          path: |
+            target/central-staging/
+            target/central-publishing/
+            **/target/*.jar
+            **/target/*.zip
+            **/target/*.pom
+            **/target/*.asc
+          if-no-files-found: ignore
