@@ -94,6 +94,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Force maven version due to plugin issue
+      # https://github.com/mavenplugins/central-publishing-maven-plugin/issues/79
+      - name: Set up Maven 3.9.16
+        uses: stCarolas/setup-maven@12eb41b233df95d49b0c11fc1b5bc8312e5d4ce0 # v5.1
+        with:
+          maven-version: 3.9.16
+
       # Setup Java environment
       - name: Set up JDK 21
         uses: actions/setup-java@v6
@@ -101,23 +108,17 @@ jobs:
           distribution: zulu
           java-version: 21
           server-id: central
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          server-username-env-var: MAVEN_USERNAME
+          server-password-env-var: MAVEN_PASSWORD
+          gpg-passphrase-env-var: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
-
-      # Pin Maven version
-      - name: Set up Maven 3.9.16
-        uses: s4u/setup-maven-action@4a02cbd99769e46198135c31d5097c94618ba3f5 # v1.21.0
-        with:
-          maven-version: 3.9.16
 
       # Print Maven version
       - name: Print Maven version
         run: mvn -version
 
-      # Run maven deploy (to Sonatype)
+      # Deploy release (to Sonatype)
       - name: Release Maven package
         # Added -DskipTests as verification happened in the first job
         run: mvn deploy -Pdeploy -DskipTests --batch-mode
@@ -125,18 +126,3 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USER }}
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-
-      # Upload artifacts uploaded to Maven Central to GitHub Actions
-      - name: Upload Snapshot Artifacts
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: central-staging-artifacts
-          path: |
-            target/central-staging/
-            target/central-publishing/
-            **/target/*.jar
-            **/target/*.zip
-            **/target/*.pom
-            **/target/*.asc
-          if-no-files-found: ignore
