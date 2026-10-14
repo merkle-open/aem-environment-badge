@@ -149,10 +149,6 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           cache: maven
 
-      # Print Maven version
-      - name: Print Maven version
-        run: mvn -version
-
       # Deploy release (to Sonatype)
       - name: Release Maven package
         # Added -DskipTests as verification happened in the first job
